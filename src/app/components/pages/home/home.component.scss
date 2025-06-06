@@ -1,0 +1,177 @@
+.home-container {
+  background-image: url('../../../../assets/images/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-position: fixed;
+  
+
+  .row {
+
+    #first-div {
+
+      h1 {
+        color: #132238;
+      }
+
+      #first-btn {
+        background: #B824B5;
+        color: white;
+        font-weight: 500;
+        transition: .3s ease-in-out;
+
+        &:hover {
+          background: lighten(#B824B5, 10%);
+        }
+      }
+
+      #experience-con {
+        gap: 10px;
+        flex-grow: 0;
+        margin-top: 100px;
+
+        div {
+          background-color: #ded7e6;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 200px;
+          padding: 12px;
+          height: 90px;
+          color: #697484;
+          flex-shrink: 1;
+          flex-grow: 1;
+
+          h1 {
+            font-size: 32px;
+            font-weight: 600;
+          }
+
+          p {
+            font-size: 16px;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+
+    #second-div {
+
+      .img-con {
+        overflow: hidden;
+        width: 300px;
+        height: 300px;
+
+        &:hover .img-container {
+          transform: scale(1.1);
+        }
+      }
+
+      .img-container {
+        height: 100%;
+        width: 100%;
+        background-image: url(../../../../assets/images/profile.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        transition: .3s ease-in-out;
+      }
+    }
+  }
+
+}
+
+// <!-- =========== BEGINNING OF SECOND CONTAINER STYLES ========= -->
+#second-container {
+  margin-top: 5rem;
+  background-color: #EDD8FF;
+  min-height: 600px;
+  padding-block: 30px;
+
+  .row {
+    height: 100%;
+
+    #div1 {
+      height: 100%;
+      margin: auto;
+      min-height: 600px;
+      display: flex;
+    
+      
+      .text-container {
+        width: 400px;
+        height: 400px;
+        text-align: center;
+        padding: 10px;
+      }
+    }
+  }
+
+  #div2 {
+    height: 100%;
+    margin: auto;
+    min-height: 600px;
+    display: flex;
+
+    .row {
+      gap: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      [class^="col"] {
+        width: 300px;
+        padding: 15px;
+        background: white;
+        box-shadow: 0 0 15px #00000054;
+        border-radius: 9px;
+        transition: .3s ease-in-out;
+        text-align: left;
+
+        &:hover .display-icon-con {
+          background-color: #A53DFF;
+          color: white;
+        }
+
+        &:hover {
+          transform: translateX(-10px) translateY(-10px) scale(1.02);
+        }
+  
+        .display-icon-con {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 72px;
+          height: 72px;
+          color: #A53DFF;
+          background: white;
+          border-radius: 7px;
+          border: none;
+          transition: .4s ease-in-out;
+
+          i {
+            width: 25px;
+            height: 30px;
+            font-weight: bold;
+          }
+        }
+  
+        .title-text {
+          font-weight: 650;
+          font-size: 20px;
+          color: #132238;
+        }
+
+        .title-content {
+          font-size: 16px;
+          color: #556070;
+        }
+      }
+    }
+
+  
+
+    
+  }
+
+}
