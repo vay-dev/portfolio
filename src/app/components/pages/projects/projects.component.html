@@ -1,1 +1,44 @@
-<p>projects works!</p>
+<div class="intro-text my-5">
+  <div class="container">
+    <h1>PROJECTS</h1>
+    <p>Please note that these are not my recent project and are just for filling up space recents ones are still in development and will be updated to the website</p>
+  </div>
+</div>
+
+
+<div id="project-showcase" class="container-fluid my-5">
+  <div class="row d-flex gap-3">
+
+@for (project of projects; track $index) {
+
+      <div class="col-lg-2 col-sm-3">
+      <div class="card-img">
+        <img src="{{ project.image }}" alt="" srcset="">
+      </div>
+
+      <div class="info-con">
+        <h6>{{ project.title }}</h6>
+        <h1>{{ project.headerText }}</h1>
+        <p>{{ project.text }}</p>
+        <a href="{{ project.href }}"><button class="btn">Case Study <img src="assets/arrow.jpg" alt="button" ></button></a>
+      </div>
+    </div>
+}
+
+  </div>
+
+  <div class="row my-5">
+    <a class="btn" href="https://github.com/vay-dev">More Projects</a>
+  </div>
+</div>
+
+
+<div id="project-idea" class="container-fluid p-5 my-5 d-flex">
+  <div class="text-container py-5 m-auto">
+    <h1>Do you have Project Idea? <br /> Let's discuss your project!</h1>
+    <p>There are many variations of passages of Lorem Ipsum available, <br /> but the majority have suffered alteration.</p>
+    <button class="btn btn-block">Lets Work Together <img src="assets/arrow.jpg" alt="img"></button>
+
+  </div>
+
+</div>

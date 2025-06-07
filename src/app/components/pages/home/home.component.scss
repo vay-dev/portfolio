@@ -62,18 +62,15 @@
         width: 300px;
         height: 300px;
 
-        &:hover .img-container {
+        &:hover img {
           transform: scale(1.1);
         }
       }
 
-      .img-container {
+      img {
         height: 100%;
         width: 100%;
-        background-image: url(../../../../assets/images/profile.jpg);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
+        object-fit: cover;
         transition: .3s ease-in-out;
       }
     }
