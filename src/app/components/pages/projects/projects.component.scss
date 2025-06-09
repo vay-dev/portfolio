@@ -167,6 +167,7 @@
   .text-container {
     width: 700px;
     text-align: center;
+    text-transform: capitalize;
 
     h1 {
       font-size: 48px;
@@ -186,6 +187,11 @@
       font-weight: 600;
       text-align: center;
       padding: 12px 24px;
+      transition: .3s ease-in-out;
+
+      &:hover {
+        background: darken($color: #A53DFF, $amount: 15%);
+      }
     }
   }
 }

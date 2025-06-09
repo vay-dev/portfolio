@@ -24,7 +24,10 @@ export class NavbarComponent {
     {
       label: 'Services',
       routeLink: '/services'
-    },
+    }, {
+      label: 'Contact',
+      routeLink: '/contact'
+    }
   ]
 
 }

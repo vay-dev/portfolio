@@ -10,7 +10,7 @@
     <nav class="flex-grow-0 ms-4">
       <div class="row">
         @for (item of items; track $index) {
-          <div class="col-6 col-md-3">
+          <div class="col-6 col-md-2 mx-auto flex-grow-1">
             <a [routerLink]="item.routeLink"
             class="nav-link text-center"
             [routerLinkActive]="'active'"
