@@ -76,3 +76,102 @@
         }
       }
   }
+
+// CAROUSEL STYLES BELOW
+
+#testimonials-con {
+  max-width: 50%;
+  text-align: center;
+
+  .title {
+    font-size: 48px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  .text {
+    color: #87909D;
+    font-size: 18px;
+  }
+
+  .carousel-wrapper {
+      width: 50%;
+      border: 1px dashed rgba(0, 0, 0, 0.224);
+      position: relative;
+      background: #dde1e6;
+
+      .carousel-buttons {
+        position: absolute;
+        bottom: 53px;
+        left: 50%;
+        width: 100%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: space-between;
+        z-index: 2;
+
+        button {
+          background: transparent;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: .3s ease;
+          background: #a43dffa9;
+          color: white;
+          border: none;
+          outline: none;
+        }
+
+        button:active {
+          transform: scale(0.95);
+        }
+      }
+
+      .carousel {
+        width: 100%;
+    
+        .testimony {
+          padding: 20px;
+          
+          h2 {
+            font-weight: 600;
+            font-size: 18px;
+          }
+    
+          .text {
+            font-size: 16px;
+          }
+    
+          .position {
+            color: #2B384C;
+            font-size: 16px;
+          }
+        }
+      }
+  }
+
+}
+
+::ng-deep .carousel-control-prev,
+::ng-deep .carousel-control-next {
+  display: none;
+}
+
+::ng-deep .carousel-indicators [data-bs-target] {
+  background-color: white;
+  width: 7px;
+  height: 7px;
+  margin: 0 5px;
+  border-radius: 50%;
+  transition: .3s ease-in-out;
+}
+
+::ng-deep .carousel-indicators .active {
+  background-color: #c084fc;
+  opacity: 1;
+  transform: scale(1.1);
+}

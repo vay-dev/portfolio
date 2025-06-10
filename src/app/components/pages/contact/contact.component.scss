@@ -47,6 +47,23 @@
         &:hover {
           box-shadow: 0 0 15px rgba(0, 0, 0, 0.412);
         }
+        .icon-container {
+          width: 58px;
+          height: 58px;
+          border-radius: 4px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 17px;
+          color: #A53DFF;
+          background: #EDD8FF;
+          transition: .3s ease-in-out;
+        }
+        
+        &:hover .icon-container {
+          background: #A53DFF;
+          color: white;
+        }
 
         .content-container {
           display: flex;
@@ -55,17 +72,6 @@
           justify-content: center;
 
 
-          .icon-container {
-            width: 58px;
-            height: 58px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 17px;
-            color: #A53DFF;
-            background: #EDD8FF;
-          }
 
           .info-container {
             text-align: left;

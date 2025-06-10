@@ -5,9 +5,13 @@
       <div class="text-container py-5 mx-auto">
         <h1>What I Do?</h1>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum. Suspendis imperdiet,</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non, laoreet imperdiet orci. Mauris ultrices eget lorem ac vestibulum. Suspendis imperdiet,
+        </p>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non.</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla purus arcu, varius eget velit non.
+        </p>
 
         <button class="btn my-3 py-3-px-5 rounded-3">Say Hello!</button>
       </div>
@@ -42,5 +46,40 @@
       </div>
     </div>
   </div>
-  <!-- CONTAINERS CLOSING TAG -->
+  <!-- CONTAINERS CLOSING TAG BELOW -->
 </div>
+
+<div id="testimonials-con" class="container my-5">
+  <h1 class="title">Testimonials</h1>
+
+  <p class="text">
+    There are many variations of passages of Lorem Ipsum available,
+    but the majority have suffered alteration.
+  </p>
+
+  <div class="carousel-wrapper my-5 mx-auto">
+      <ngb-carousel class="carousel" #carouselRef
+        *ngIf="testimonials.length"
+        [interval]="4000"
+        [pauseOnHover]="true"
+        (slide)="onSlide($event)"
+        >
+          @for (t of testimonials; track $index) {
+            <ng-template ngbSlide>
+              <div class="testimony">
+                <p class="text">{{ t.text }}</p>
+                <h2 class="name">{{ t.name }}</h2>
+                <p class="position">{{ t.position }}</p>
+              </div>
+            </ng-template>
+            }
+        
+      </ngb-carousel>
+    
+      <div class="carousel-buttons">
+        <button (click)="goToPrev()" class="arrow-left"><i class="fa-solid fa-arrow-left"></i></button>
+        <button (click)="goToNext()" class="arrow-right"><i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+  </div>
+</div>
+
