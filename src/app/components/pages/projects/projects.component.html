@@ -19,8 +19,8 @@
       <div class="info-con">
         <h6>{{ project.title }}</h6>
         <h1>{{ project.headerText }}</h1>
-        <p>{{ project.text }}</p>
-        <a href="{{ project.href }}"><button class="btn">Case Study <i class="fa-solid fa-arrow-right"></i></button></a>
+        <p [innerHTML]="project.text"></p>
+        <a href="{{ project.href }}" target="_blank"><button class="btn">Case Study <i class="fa-solid fa-arrow-right"></i></button></a>
       </div>
     </div>
 }
@@ -28,7 +28,7 @@
   </div>
 
   <div class="row my-5">
-    <a class="btn" href="https://github.com/vay-dev">More Projects</a>
+    <a class="btn" href="https://github.com/vay-dev" target="_blank">More Projects</a>
   </div>
 </div>
 
@@ -36,7 +36,8 @@
 <div id="project-idea" class="container-fluid p-5 my-5 d-flex">
   <div class="text-container py-5 m-auto">
     <h1>Do you have A Project Idea? <br /> Let's discuss your project!</h1>
-    <p>There are many variations of passages of Lorem Ipsum available, <br /> but the majority have suffered alteration.</p>
+    <p>  Great ideas deserve great execution. <br />
+  Let's collaborate and build something impactful and user-focused..</p>
     <button class="btn btn-block">Lets Work Together <i class="fa-solid fa-arrow-right"></i></button>
 
   </div>

@@ -89,7 +89,107 @@
             }
           }
         }
+
       }
+
+      .social-icons-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-left: 15px;
+        cursor: pointer;
+        gap: 20px;
+        width: 100%;
+  
+        span {
+          width: 48px;
+          height: 48px;
+          background: white;
+          color: #A53DFF;
+          transition: .3s ease;
+          font-size: 17px;
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.383);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:hover {
+            background: #A53DFF;
+            color: white;
+            transform: translateY(-6px);
+          }
+  
+          i {
+            transition: .3s ease;
+          }
+        }
+      }
+    }
+  }
+
+  #second-container {
+    text-align: left;
+
+    .text {
+      font-size: 18px;
+      color: #87909D;
+      font-weight: 600;
+    }
+
+    .input-container {
+
+      .input-wrapper {
+        position: relative;
+        margin-block-end: 24px;
+
+        .label {
+          position: absolute;
+          font-size: 16px;
+          font-weight: 600;
+          color: #697484;
+          left: 18px;
+          top: 5px;
+          transition: .3s ease-in-out;
+        }
+        
+        input {
+          border: none;
+          width: 100%;
+          border-bottom: 1px solid #E6E8EB;
+          transition: .3s ease;
+          background: transparent;
+  
+          &:hover {
+            border-bottom: 1.5px solid #A53DFF;
+          }
+        }
+
+        input:focus + .label ,
+        input:not(:placeholder-shown) + .label, 
+        input:valid + .label {
+         transform: translateY(-29px);
+         color: #A53DFF;
+       }
+        
+      }
+
+        #submit {
+          background: #A53DFF;
+          color: white;
+          display: flex;
+          gap: 12px;
+          align-items: center;
+          justify-content: center;
+          padding-inline: 24px;
+          padding-block: 12px;
+          font-size: 16px;
+          font-weight: 600;
+          transition: .3s ease-in-out;
+
+          &:hover {
+            background: darken($color: #A53DFF, $amount: 15%);
+          }
+        }
     }
   }
 }

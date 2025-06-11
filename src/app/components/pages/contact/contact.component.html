@@ -3,60 +3,69 @@
     <div id="first-container" class="col-md-6 p-4">
       <div class="div">
         <h1>Lets Discuss Your Project</h1>
-        <p>There are many variations of passages of Lorem Ipsu available. but the majority have suffered alte.</p>
+        <p>We're here to collaborate on ideas and create something amazing. Let's connect and make it happen.</p>
       </div>
 
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-12" *ngFor="let address of addresses; let i = index">
 
             <div class="content-container">
 
               <div class="icon-container">
-                <i class="fa-solid fa-location-dot"></i>
+                <i class="{{address.icon}}"></i>
               </div>
               <!-- BREAKPOINT -->
                <div class="info-container">
-                <p>Address:</p>
-                <h2>Alimosho 123</h2>
+                <p>{{ address.pText }} :</p>
+                <h2>{{ address.h2Text }}</h2>
                </div>
             </div>
           </div>
-          <!-- DIVIDER -->
-          <div class="col-md-12">
-
-            <div class="content-container">
-
-              <div class="icon-container">
-                <i class="fa-solid fa-location-dot"></i>
-              </div>
-              <!-- BREAKPOINT -->
-               <div class="info-container">
-                <p>Address:</p>
-                <h2>Alimosho 123</h2>
-               </div>
-            </div>
+          <div class="social-icons-container">
+            <span class="rounded-2"><i class="fa-brands fa-facebook-f"></i></span>
+            <span class="rounded-2"><i class="fa-brands fa-whatsapp"></i></span>
+            <span class="rounded-2"><i class="fa-brands fa-telegram"></i></span>
+            <span class="rounded-2"><i class="fa-brands fa-instagram"></i></span>
+            <span class="rounded-2"><i class="fa-brands fa-linkedin-in"></i></span>
           </div>
-          <!-- DIVIDER -->
-          <div class="col-md-12">
+        </div>
 
-            <div class="content-container">
-
-              <div class="icon-container">
-                <i class="fa-solid fa-location-dot"></i>
-              </div>
-              <!-- BREAKPOINT -->
-               <div class="info-container">
-                <p>Address:</p>
-                <h2>Alimosho 123</h2>
-               </div>
-            </div>
-          </div>
-    
-    </div>
     </div>
     <!-- ====== DIVIDER ===== -->
-    <div class="col-md-6">
-      <p>second content</p>
+    <div id="second-container" class="col-md-6 p-4">
+      
+      <p class="text">
+        Tell me a bit about your project and we'll get back to you shortly with ideas and timelines that suit your needs.
+      </p>
+
+<form #form="ngForm" (ngSubmit)="sendEmail(form)">
+  <div class="input-container container-fluid my-5">
+    <div class="row">
+      @for (input of inputs; track $index) {
+        <div
+          class="input-wrapper"
+          [ngClass]="input.class === 'half' ? 'col-md-6' : 'col-md-12'">
+          
+          <input
+            [type]="input.type"
+            [name]="input.name"
+            required
+            [(ngModel)]="formData[input.name]"
+            placeholder=" " />
+
+          <div class="label">{{ input.placeholder }}</div>
+        </div>
+      }
+    </div>
+
+    <button id="submit" class="btn my-3" type="submit">
+      Submit
+      <span><i class="fa-solid fa-paper-plane"></i></span>
+    </button>
+  </div>
+</form>
+
+
     </div>
   </div>
 </div>

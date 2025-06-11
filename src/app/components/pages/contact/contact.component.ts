@@ -1,15 +1,89 @@
+import { CommonModule, NgFor } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-contact',
-  imports: [],
+  imports: [NgFor, CommonModule, FormsModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
-  address = [
-    {
-      
+
+  formData: any = {};
+
+  sendEmail(form: any) {
+    if (form.valid) {
+      emailjs.send('service_oh41t9t', 'template_5qrs32r', this.formData, 'LzNTw0gceZFNwnQHv')
+        .then(() => {
+          alert('Email sent successfully!');
+          form.resetForm();
+        }, (error) => {
+          console.error('Email error:', error);
+          alert('Failed to send email.');
+        });
+    } else {
+      alert('Please fill in all required fields.');
     }
+  }
+
+  addresses = [
+    {
+      icon: 'fa-solid fa-location-dot',
+      pText: 'Address',
+      h2Text: 'Alimosho 123'
+    },
+    {
+      icon: 'fa-solid fa-envelope',
+      pText: 'Email',
+      h2Text: 'ayeniv69@gmail.com'
+    },
+    {
+      icon: 'fa-solid fa-phone',
+      pText: 'Call me now',
+      h2Text: '+234-707-3111-588'
+    },
   ]
+
+  inputs = [
+    {
+      type: 'text',
+      class: '',
+      name: 'user_name',
+      placeholder: 'Name*'
+    },
+    {
+      type: 'email',
+      class: '',
+      name: 'user_email',
+      placeholder: 'Email*'
+    },
+    {
+      type: 'text',
+      class: '',
+      name: 'location',
+      placeholder: 'Location*'
+    },
+    {
+      type: 'text',
+      class: 'half',
+      name: 'budget',
+      placeholder: 'Budget*'
+    },
+    {
+      type: 'text',
+      class: 'half',
+      name: 'subject',
+      placeholder: 'Subject*'
+    },
+    {
+      type: 'text',
+      class: '',
+      name: 'message',
+      placeholder: 'Message*'
+    },
+  ];
+
+
 }
