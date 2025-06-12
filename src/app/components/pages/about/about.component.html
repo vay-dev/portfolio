@@ -20,32 +20,68 @@
     </div>
     <!-- BREAKPOINT  -->
     <div id="column-two" class="col-md-6">
-      <div class="container">
-        <!-- ==== FIRST DIV ==== -->
-        <div class="row col-md-12 p-5">
-          <h1>User Experience (UX)</h1>
 
-          <p>
-            Crafting thoughtful journeys that engage users. I optimize interfaces for clarity, ease, and satisfaction by putting user needs first — from wireframes to final feedback loops.
-          </p>
-        </div>
-        <!-- ==== SECOND DIV ==== -->
-        <div class="row col-md-12 p-5">
-          <h1>User Interface (UI)</h1>
+      <div class="container mx-auto">
+        <div class="img-info-con">
+          <div class="img-con my-2 mx-auto">
+            <img src="assets/images/profile.jpg" alt="" srcset="">
+          </div>
 
-          <p>
-            Designing with precision and intent. I create visual interfaces that are not only aesthetically pleasing but also intuitive, guiding users with visual clarity and structure.
-          </p>
+          <h1 class="img-name">Victor Ayeni</h1>
+          <p>Frontend developer</p>
         </div>
-        <!-- ==== THIRD DIV ==== -->
-        <div class="row col-md-12 p-5">
-          <h1>Web Development</h1>
 
-          <p>
-            Writing clean, scalable code with performance in mind. Whether it's static sites or dynamic web apps, I develop responsive, fast-loading websites using modern technologies.
-          </p>
+        <div class="info-container">
+          <div *ngFor="let item of info" class="info-row">
+            <div class="infos">
+              <span class="label">{{ item.label }}:</span>
+              <span class="value" [ngStyle]="{ color: item.color || '#333' }">
+                {{ item.value }}
+              </span>
+            </div>
+          </div>
         </div>
+
+        <div class="skills-container my-3">
+          <h3 class="text-center">Skills</h3>
+
+          <div *ngFor="let skill of skills" class="skill">
+            <div class="skill-name">
+              {{ skill.name }} 
+              <span>{{ skill.percentage }}%</span>
+            </div>
+
+            <div class="progress-bar">
+              <div class="progress-fill" [style.width.%]="skill.percentage">
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="extra-skills-container">
+          <h3 class="text-center">Extra Skills</h3>
+
+          <ul>
+            @for (skill of extraSkills; track $index) {
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="#A53Dff"
+                  width="16"
+                  height="16"
+                  class="icon">
+                  <path d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"></path>
+                </svg>
+                <span class="mx-2">{{ skill }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+        <!-- mini parent closing tag -->
       </div>
+
+      <!-- PARENTS CLOSING TAG BELOW -->
     </div>
   </div>
   <!-- CONTAINERS CLOSING TAG BELOW -->

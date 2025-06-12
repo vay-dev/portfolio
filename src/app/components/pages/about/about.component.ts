@@ -1,15 +1,30 @@
 import { Component, ViewChild } from '@angular/core';
-import { NgIf } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { NgbCarousel, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [NgIf, NgbCarouselModule],
+  imports: [NgIf, NgbCarouselModule, CommonModule],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
 })
 export class AboutComponent {
+
+  info = [
+    { label: 'Age', value: '18' },
+    { label: 'Residence', value: 'BD' },
+    { label: 'Freelance', value: 'Available', color: 'green' },
+    { label: 'Address', value: 'Lagos, Nigeria' }
+  ];
+
+  skills = [
+    { name: 'Html', percentage: 80 },
+    { name: 'CSS', percentage: 95 },
+    { name: 'Js', percentage: 80 },
+    { name: 'Ts', percentage: 75 },
+  ];
+
   testimonials = [
     {
       text: 'Amazing experience!',
@@ -27,6 +42,20 @@ export class AboutComponent {
       position: 'KLE, WER Ltd.',
     },
   ];
+
+  extraSkills = [
+    'Bootstrap',
+    'Materialize',
+    'UI Verse',
+    'Tailwind',
+    'Sass',
+    'Webpack (basic config knowledge)',
+    'EmailJS',
+    'Git & GitHub',
+    'Netlify',
+    'GitHub Pages'
+  ];
+
 
   currentSlide: number = 0;
 
