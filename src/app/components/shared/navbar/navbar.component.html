@@ -1,24 +1,34 @@
 <header class="header container-fluid py-3 bg-light">
   <div class="d-flex justify-content-between align-items-center w-100">
-    
     <!-- Logo / Brand -->
-    <div class="logo d-flex fw-bold gap-2">
+    <div class="logo-con d-flex fw-bold gap-2">
       <span id="logo">V</span><span class="fs-4 fw-bold">Victor</span>
+
+      <a
+        href="assets/resume/Resume_Ayeni_Victor.pdf"
+        download="Ayeni_Victor_Resume.pdf"
+        class="btn ms-3 d-flex align-items-center gap-1"
+      >
+        <i class="fa-solid fa-download"></i>
+        <span>Download CV</span>
+      </a>
     </div>
 
     <!-- Navigation Links -->
     <nav class="flex-grow-0 ms-4">
       <div class="row">
         @for (item of items; track $index) {
-          <div class="col-6 col-md-2 mx-auto flex-grow-1">
-            <a [routerLink]="item.routeLink"
+        <div class="col-6 col-md-2 mx-auto flex-grow-1">
+          <a
+            [routerLink]="item.routeLink"
             class="nav-link text-center"
             [routerLinkActive]="'active'"
-            [routerLinkActiveOptions]="{exact: true}">{{ item.label }}</a>
-          </div>
+            [routerLinkActiveOptions]="{ exact: true }"
+            >{{ item.label }}</a
+          >
+        </div>
         }
       </div>
     </nav>
-
   </div>
 </header>

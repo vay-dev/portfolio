@@ -1,5 +1,5 @@
 import { CommonModule, NgFor } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Component } from '@angular/core';
 import emailjs from '@emailjs/browser';
 
@@ -11,8 +11,21 @@ import emailjs from '@emailjs/browser';
 })
 export class ContactComponent {
   formData: any = {};
+  sending: boolean = false;
 
-  sendEmail(form: any) {
+  sendEmail(form: NgForm) {
+    if (this.sending) {
+      console.warn('Sending in process please wait');
+      return;
+    }
+
+    if (!form.valid) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    this.sending = true;
+
     if (form.valid) {
       emailjs
         .send(
@@ -25,14 +38,14 @@ export class ContactComponent {
           () => {
             alert('Email sent successfully!');
             form.resetForm();
+            this.sending = false;
           },
           (error) => {
             console.error('Email error:', error);
             alert('Failed to send email.');
+            this.sending = false;
           }
         );
-    } else {
-      alert('Please fill in all required fields.');
     }
   }
 

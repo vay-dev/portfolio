@@ -3,69 +3,98 @@
     <div id="first-container" class="col-md-6 p-4">
       <div class="div">
         <h1>Lets Discuss Your Project</h1>
-        <p>We're here to collaborate on ideas and create something amazing. Let's connect and make it happen.</p>
+        <p>
+          We're here to collaborate on ideas and create something amazing. Let's
+          connect and make it happen.
+        </p>
       </div>
 
-        <div class="row">
-          <div class="col-md-12" *ngFor="let address of addresses; let i = index">
-
-            <div class="content-container">
-
-              <div class="icon-container">
-                <i class="{{address.icon}}"></i>
-              </div>
-              <!-- BREAKPOINT -->
-               <div class="info-container">
-                <p>{{ address.pText }} :</p>
-                <h2>{{ address.h2Text }}</h2>
-               </div>
+      <div class="row">
+        <div class="col-md-12" *ngFor="let address of addresses; let i = index">
+          <div class="content-container">
+            <div class="icon-container">
+              <i class="{{ address.icon }}"></i>
+            </div>
+            <!-- BREAKPOINT -->
+            <div class="info-container">
+              <p>{{ address.pText }} :</p>
+              <h2>{{ address.h2Text }}</h2>
             </div>
           </div>
-          <div class="social-icons-container">
-            <a href="https://web.facebook.com/profile.php?id=61557084772235" target="_blank"><span class="rounded-2"><i class="fa-brands fa-facebook-f"></i></span></a>
-            <a href="" target="_blank"><span class="rounded-2"><i class="fa-brands fa-whatsapp"></i></span></a>
-            <a href="https://t.me/victor_ay14" target="_blank"><span class="rounded-2"><i class="fa-brands fa-telegram"></i></span></a>
-            <a href="https://www.instagram.com/vay_dev24/" target="_blank"><span class="rounded-2"><i class="fa-brands fa-instagram"></i></span></a>
-            <a href="https://www.linkedin.com/in/ayeni-victor-6a403136b/" target="_blank"><span class="rounded-2"><i class="fa-brands fa-linkedin-in"></i></span></a>
-          </div>
         </div>
-
+        <div class="social-icons-container">
+          <a
+            href="https://web.facebook.com/profile.php?id=61557084772235"
+            target="_blank"
+            ><span class="rounded-2"
+              ><i class="fa-brands fa-facebook-f"></i></span
+          ></a>
+          <a href="" target="_blank"
+            ><span class="rounded-2"><i class="fa-brands fa-whatsapp"></i></span
+          ></a>
+          <a href="https://t.me/victor_ay14" target="_blank"
+            ><span class="rounded-2"><i class="fa-brands fa-telegram"></i></span
+          ></a>
+          <a href="https://www.instagram.com/vay_dev24/" target="_blank"
+            ><span class="rounded-2"
+              ><i class="fa-brands fa-instagram"></i></span
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/ayeni-victor-6a403136b/"
+            target="_blank"
+            ><span class="rounded-2"
+              ><i class="fa-brands fa-linkedin-in"></i></span
+          ></a>
+        </div>
+      </div>
     </div>
     <!-- ====== DIVIDER ===== -->
     <div id="second-container" class="col-md-6 p-4">
-      
       <p class="text">
-        Tell me a bit about your project and we'll get back to you shortly with ideas and timelines that suit your needs.
+        Tell me a bit about your project and we'll get back to you shortly with
+        ideas and timelines that suit your needs.
       </p>
 
-<form #form="ngForm" (ngSubmit)="sendEmail(form)">
-  <div class="input-container container-fluid my-5">
-    <div class="row">
-      @for (input of inputs; track $index) {
-        <div
-          class="input-wrapper"
-          [ngClass]="input.class === 'half' ? 'col-md-6' : 'col-md-12'">
-          
-          <input
-            [type]="input.type"
-            [name]="input.name"
-            required
-            [(ngModel)]="formData[input.name]"
-            placeholder=" " />
+      <form
+        #form="ngForm"
+        (ngSubmit)="sendEmail(form)"
+        class="contact-form"
+        [class.sending]="sending"
+        (keydown.enter)="sending && $event.preventDefault()"
+      >
+        <div class="input-container container-fluid my-5">
+          <div class="row">
+            @for (input of inputs; track $index) {
+            <div
+              class="input-wrapper"
+              [ngClass]="input.class === 'half' ? 'col-md-6' : 'col-md-12'"
+            >
+              <input
+                [type]="input.type"
+                [name]="input.name"
+                required
+                [(ngModel)]="formData[input.name]"
+                placeholder=" "
+              />
 
-          <div class="label">{{ input.placeholder }}</div>
+              <div class="label">{{ input.placeholder }}</div>
+            </div>
+            }
+          </div>
+
+          <!-- NEW -->
+          <button
+            id="submit"
+            class="btn my-3"
+            type="submit"
+            [disabled]="sending || !form.valid"
+            [class.sending]="sending"
+          >
+            {{ sending ? "Sending…" : "Submit" }}
+            <span><i class="fa-solid fa-paper-plane"></i></span>
+          </button>
         </div>
-      }
-    </div>
-
-    <button id="submit" class="btn my-3" type="submit">
-      Submit
-      <span><i class="fa-solid fa-paper-plane"></i></span>
-    </button>
-  </div>
-</form>
-
-
+      </form>
     </div>
   </div>
 </div>
