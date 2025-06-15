@@ -7,22 +7,30 @@ import emailjs from '@emailjs/browser';
   selector: 'app-contact',
   imports: [NgFor, CommonModule, FormsModule],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss'
+  styleUrl: './contact.component.scss',
 })
 export class ContactComponent {
-
   formData: any = {};
 
   sendEmail(form: any) {
     if (form.valid) {
-      emailjs.send('service_oh41t9t', 'template_5qrs32r', this.formData, 'LzNTw0gceZFNwnQHv')
-        .then(() => {
-          alert('Email sent successfully!');
-          form.resetForm();
-        }, (error) => {
-          console.error('Email error:', error);
-          alert('Failed to send email.');
-        });
+      emailjs
+        .send(
+          'service_6tprcqf',
+          'template_5qrs32r',
+          this.formData,
+          'z_rz1HBDj-dGUXvCL'
+        )
+        .then(
+          () => {
+            alert('Email sent successfully!');
+            form.resetForm();
+          },
+          (error) => {
+            console.error('Email error:', error);
+            alert('Failed to send email.');
+          }
+        );
     } else {
       alert('Please fill in all required fields.');
     }
@@ -32,58 +40,56 @@ export class ContactComponent {
     {
       icon: 'fa-solid fa-location-dot',
       pText: 'Address',
-      h2Text: 'Alimosho 123'
+      h2Text: 'Alimosho 123',
     },
     {
       icon: 'fa-solid fa-envelope',
       pText: 'Email',
-      h2Text: 'ayeniv69@gmail.com'
+      h2Text: 'ayeniv69@gmail.com',
     },
     {
       icon: 'fa-solid fa-phone',
       pText: 'Call me now',
-      h2Text: '+234-707-3111-588'
+      h2Text: '+234-707-3111-588',
     },
-  ]
+  ];
 
   inputs = [
     {
       type: 'text',
       class: '',
       name: 'user_name',
-      placeholder: 'Name*'
+      placeholder: 'Name*',
     },
     {
       type: 'email',
       class: '',
       name: 'user_email',
-      placeholder: 'Email*'
+      placeholder: 'Email*',
     },
     {
       type: 'text',
       class: '',
       name: 'location',
-      placeholder: 'Location*'
+      placeholder: 'Location*',
     },
     {
       type: 'text',
       class: 'half',
       name: 'budget',
-      placeholder: 'Budget*'
+      placeholder: 'Budget*',
     },
     {
       type: 'text',
       class: 'half',
       name: 'subject',
-      placeholder: 'Subject*'
+      placeholder: 'Subject*',
     },
     {
       type: 'text',
       class: '',
       name: 'message',
-      placeholder: 'Message*'
+      placeholder: 'Message*',
     },
   ];
-
-
 }
