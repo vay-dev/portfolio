@@ -1,45 +1,63 @@
 <div class="intro-text my-5">
   <div class="container">
     <h1>PROJECTS</h1>
-    <p>Please note that these are not my recent project and are just for filling up space recents ones are still in development and will be updated to the website</p>
+    <p>
+      Please note that these are not my recent project and are just for filling
+      up space recents ones are still in development and will be updated to the
+      website
+    </p>
   </div>
 </div>
 
-
-<div id="project-showcase" class="container-fluid my-5">
+<div
+  id="project-showcase"
+  class="container-fluid my-5 animate__animated animate__slideInUp"
+  style="--animate-duration: 0.8s"
+>
   <div class="row d-flex gap-3">
+    @for (project of projects; track $index) {
 
-@for (project of projects; track $index) {
-
-      <div class="col-lg-2 col-sm-3">
+    <div class="col-lg-2 col-sm-3">
       <div class="card-img">
-        <img src="{{ project.image }}" alt="" srcset="">
+        <img src="{{ project.image }}" alt="" srcset="" />
       </div>
 
       <div class="info-con">
         <h6>{{ project.title }}</h6>
         <h1>{{ project.headerText }}</h1>
         <p [innerHTML]="project.text"></p>
-        <a href="{{ project.href }}" target="_blank"><button class="btn">Case Study <i class="fa-solid fa-arrow-right"></i></button></a>
+        <a href="{{ project.href }}" target="_blank"
+          ><button class="btn">
+            Case Study <i class="fa-solid fa-arrow-right"></i></button
+        ></a>
       </div>
     </div>
-}
-
+    }
   </div>
 
   <div class="row my-5">
-    <a class="btn" href="https://github.com/vay-dev" target="_blank">More Projects</a>
+    <a class="btn" href="https://github.com/vay-dev" target="_blank"
+      >More Projects</a
+    >
   </div>
 </div>
 
-
-<div id="project-idea" class="container-fluid p-5 my-5 d-flex">
+<div
+  id="project-idea"
+  class="container-fluid p-5 my-5 d-flex animate__animated animate__slideInUp"
+  style="--animate-duration: 0.8s"
+>
   <div class="text-container py-5 m-auto">
-    <h1>Do you have A Project Idea? <br /> Let's discuss your project!</h1>
-    <p>  Great ideas deserve great execution. <br />
-  Let's collaborate and build something impactful and user-focused..</p>
-    <button class="btn btn-block">Lets Work Together <i class="fa-solid fa-arrow-right"></i></button>
-
+    <h1>
+      Do you have A Project Idea? <br />
+      Let's discuss your project!
+    </h1>
+    <p>
+      Great ideas deserve great execution. <br />
+      Let's collaborate and build something impactful and user-focused..
+    </p>
+    <button class="btn btn-block">
+      Lets Work Together <i class="fa-solid fa-arrow-right"></i>
+    </button>
   </div>
-
 </div>

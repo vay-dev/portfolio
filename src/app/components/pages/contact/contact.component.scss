@@ -187,6 +187,7 @@
         font-size: 16px;
         font-weight: 600;
         transition: 0.3s ease-in-out;
+        width: 12ch;
 
         &.sending,
         &:disabled {
@@ -199,5 +200,36 @@
         }
       }
     }
+  }
+}
+
+.loading-text {
+  display: inline-flex;
+  color: white;
+  overflow: hidden;
+  border-right: 0.2em solid #a53dff; /* Cursor */
+  animation: typeAndDelete 4s steps(10) infinite,
+    blinkCursor 0.5s step-end infinite alternate;
+  display: inline;
+}
+
+@keyframes blinkCursor {
+  50% {
+    border-right-color: transparent;
+  }
+}
+
+@keyframes typeAndDelete {
+  0%,
+  10% {
+    width: 0;
+  }
+  45%,
+  55% {
+    width: 9ch;
+  } /* adjust width based on content */
+  90%,
+  100% {
+    width: 0;
   }
 }

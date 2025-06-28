@@ -87,11 +87,16 @@
             id="submit"
             class="btn my-3"
             type="submit"
-            [disabled]="sending || !form.valid"
+            [disabled]="sending"
             [class.sending]="sending"
           >
-            {{ sending ? "Sending…" : "Submit" }}
-            <span><i class="fa-solid fa-paper-plane"></i></span>
+            <ng-container *ngIf="sending; else submitText">
+              <div class="loading-text">Loading...</div>
+            </ng-container>
+            <ng-template #submitText>
+              Submit
+              <span><i class="fa-solid fa-paper-plane"></i></span>
+            </ng-template>
           </button>
         </div>
       </form>
