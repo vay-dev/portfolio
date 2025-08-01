@@ -1,126 +1,90 @@
-<div class="container-fluid home-container p-5">
-
+<div class="home-container p-5">
   <!-- ====== THIS IS A PARENT FOR THE TWO DIVS IN THE MAIN SECTION ======= -->
   <div class="row">
-
-    <div id="first-div" class="col-lg-6 flex-grow-1">
-      <h1 class="fw-bold fs-1">Hello, I Am <br /> Victor Ayeni</h1>
-
+    <div id="first-div" class="col-lg-6">
+      <h1 class="fw-bold fs-1">
+        Hello, I Am <br />
+        Victor Ayeni
+      </h1>
       <p>
-        I'm a Freelance UI/UX Designer and Developer based in Lagos, Nigeria. I strive to build immersive and beautiful web applications through carefully crafted code and user-centric design.
+        I'm a Freelance UI/UX Designer and Developer based in Lagos, Nigeria. I
+        strive to build immersive and beautiful web applications through
+        carefully crafted code and user-centric design.
       </p>
-
-      <button id="first-btn" class="btn">Say Hello</button>
-
+      <!-- Replace with your number -->
+      <a
+        href="https://wa.me/2348105315495?text=Hi%20there%21%20I%E2%80%99m%20interested%20in%20learning%20more%20about%20your%20offerings.%20Can%20we%20chat%3F"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <button id="first-btn" class="btn">Contact Us</button>
+      </a>
       <div id="experience-con" class="row">
         <div class="col-md-4" #glossyItem>
           <h1>2 Yrs+.</h1>
           <p>Experience</p>
         </div>
-
         <!-- BREAKPOINT -->
-
         <div class="col-md-4" #glossyItem>
           <h1>30+</h1>
           <p>Projects Completed</p>
         </div>
-
         <!-- BREAKPOINT -->
-
         <div class="col-md-4 col-sm-12" #glossyItem>
           <h1>24/7.</h1>
           <p>Support Availability</p>
         </div>
       </div>
     </div>
-
-
     <div id="second-div" class="col-lg-6">
-        <div class="img-con m-auto rounded-3 my-5">
-            <img src="assets/images/profile.jpg" alt="Profile" />
-        </div>
+      <div class="img-con m-auto rounded-3 my-5">
+        <img src="assets/images/profile.jpg" alt="Profile" />
+      </div>
     </div>
-
-
   </div>
 </div>
-
-
 <!-- =========== BEGINNING OF SECOND CONTAINER ========= -->
- <div id="second-container" class="container-fluid">
-    <div class="row">
-      <!-- DIV ONE -->
-      <div id="div1" class="col-md-6">
-        <div class="text-container border-2 rounded-3 m-auto">
-          <h1>1. Work Process</h1>
-
-          <p>
-            I follow a structured and creative workflow — from research and wireframing to full design and development. Each step is planned for maximum clarity and efficiency.
-          </p>
-
-          <p>
-            Every project starts with clear goals, followed by thoughtful planning and fast, iterative execution to deliver smooth, user-friendly results.
-          </p>
-        </div>
+<div id="second-container">
+  <div class="row">
+    <!-- DIV ONE -->
+    <div id="div1" class="col-md-6">
+      <div class="text-container border-2 rounded-3 m-auto">
+        <h1>1. Work Process</h1>
+        <p>
+          I follow a structured and creative workflow — from research and
+          wireframing to full design and development. Each step is planned for
+          maximum clarity and efficiency.
+        </p>
+        <p>
+          Every project starts with clear goals, followed by thoughtful planning
+          and fast, iterative execution to deliver smooth, user-friendly
+          results.
+        </p>
       </div>
-
-
-      <!-- DIV TWO -->
-      <div id="div2" class="col-md-6">
-          <div class="row m-auto">
-
-            <div class="col-lg-3">
+    </div>
+    <!-- DIV TWO -->
+    <div id="div2" class="col-md-6">
+      <div class="cards-container">
+        <div class="cards-grid">
+          <div
+            class="column-card"
+            *ngFor="let card of processSteps; index as i"
+          >
+            <div class="card-header">
               <div class="display-icon-con">
-                <i class="fa-solid fa-calendar-days"></i>
+                <i class="{{ card.icon }}"></i>
               </div>
-
-              <h1 class="title-text my-3">1. Research</h1>
-
-              <p class="title-content">
-                Understand user needs, market trends, and business goals to lay the foundation for a successful project.
-              </p>
+              <span class="step-number">{{ i + 1 }}</span>
             </div>
-            <!-- DIV ONE -->
-            <div class="col-lg-3">
-               <div class="display-icon-con">
-                <i class="fa-solid fa-chart-line"></i> 
-              </div>
-
-              <h1 class="title-text my-3">2. Analyze</h1>
-
-              <p class="title-content">
-                Evaluate insights, identify opportunities, and define clear objectives to guide the design strategy.
-              </p>
+            <div class="card-content">
+              <h3 class="title-text">{{ card.title }}</h3>
+              <p class="title-content">{{ card.content }}</p>
             </div>
-            <!-- DIV TWO -->
-            <div class="col-lg-3">
-               <div class="display-icon-con">
-                <i class="fa-solid fa-pen"></i>
-              </div>
-
-              <h1 class="title-text my-3">3. Design</h1>
-
-              <p class="title-content">
-                Create intuitive, engaging, and user-centered designs that align with the project's vision and goals.
-              </p>
-            </div>
-            <!-- DIV THREE -->
-            <div class="col-lg-3">
-               <div class="display-icon-con">
-                <i class="fa-solid fa-display"></i>
-              </div>
-
-              <h1 class="title-text my-3">4. Launch</h1>
-
-              <p class="title-content">
-                Deploy the final product with confidence, ensuring performance, accessibility, and user satisfaction.
-              </p>
-            </div>
-            <!-- DIV FOUR -->
           </div>
         </div>
       </div>
-
-      <!-- END OF PARENT DIV TAG BELOW -->
-    <!-- BREAKPOINT -->
- </div>
+    </div>
+  </div>
+  <!-- END OF PARENT DIV TAG BELOW -->
+  <!-- BREAKPOINT -->
+</div>

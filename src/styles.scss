@@ -1,20 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@use "styles/variables";
+@use "sass:color";
+@use "bootstrap/scss/bootstrap";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 /* You can add global styles to this file, and also import other style files */
-html, body {
+
+html,
+body {
   margin: 0;
   padding: 0;
 }
 
+/* CSS Variables for light mode (default) */
+:root {
+  --primary: #a53dff;
+  --secondary: #b824b5;
+  --accent: #edd8ff;
+  --background: #f7f7f7;
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+  --text: #132238;
+  --text-secondary: #697484;
+  --text-muted: #87909d;
+  --border: #ded7e6;
+  --border-subtle: #ede9f1;
+  --shadow: rgba(0, 0, 0, 0.08);
+
+  /* Additional utility colors */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+
+  /* Hover states */
+  --primary-hover: #9333ea;
+  --secondary-hover: #a21caf;
+  --surface-hover: #f3f4f6;
+
+  /* Overlays */
+  --overlay: rgba(255, 255, 255, 0.8);
+  --backdrop: rgba(0, 0, 0, 0.3);
+}
+
+/* CSS Variables for dark mode */
+:root[data-theme="dark"],
+body.darkmode,
+.darkmode {
+  --primary: #c084fc;
+  --secondary: #d946ef;
+  --accent: #2d1b4e;
+  --background: #0f172a;
+  --surface: #192230;
+  --surface-elevated: #334155;
+  --text: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border: #475569;
+  --border-subtle: #334155;
+  --shadow: rgba(0, 0, 0, 0.5);
+
+  /* Additional utility colors for dark mode */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+
+  /* Hover states for dark mode */
+  --primary-hover: #a855f7;
+  --secondary-hover: #c026d3;
+  --surface-hover: #2563eb;
+
+  /* Overlays for dark mode */
+  --overlay: rgba(15, 23, 42, 0.8);
+  --backdrop: rgba(0, 0, 0, 0.6);
+}
+
 body {
-  font-family: "Open Sans" sans-serif;
-  background-color: #f7f7f7;
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--background) !important;
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease !important;
 }
 
 * {
   outline: none;
 }
-/* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';
-
-/* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';

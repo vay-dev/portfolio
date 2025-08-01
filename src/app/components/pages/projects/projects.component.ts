@@ -17,10 +17,10 @@ export class ProjectsComponent {
     },
     {
       image: 'assets/projects/img2.png',
-      title: 'Portfolio Design',
-      headerText: 'Fashion Designer Portfolio',
-      text: 'Showcasing creativity and identity through elegant layouts.',
-      href: 'https://vay-dev.github.io/fashion_designer_portfolio/',
+      title: 'UI Design',
+      headerText: 'Logistics Website',
+      text: 'Sleek logistics website with modern layouts and strong brand-focused visuals.',
+      href: 'https://logistics-bice-theta.vercel.app/',
     },
     {
       image: 'assets/projects/img3.png',

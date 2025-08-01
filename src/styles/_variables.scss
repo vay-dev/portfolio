@@ -1,0 +1,41 @@
+// _variables.scss
+// Light mode colors (your existing palette)
+$primary: #a53dff;
+$secondary: #b824b5;
+$accent: #edd8ff;
+$background: #f7f7f7;
+$surface: #ffffff;
+$text: #132238;
+$text-secondary: #697484;
+$text-muted: #87909d;
+$border: #ded7e6;
+$shadow: rgba(0, 0, 0, 0.08);
+
+// Enhanced dark mode colors
+$primary-dark: #c084fc; // Lighter, more accessible purple
+$secondary-dark: #d946ef; // Brighter magenta for better contrast
+$accent-dark: #2d1b4e; // Deep purple background accent
+$background-dark: #0f172a; // Very dark blue-gray
+$surface-dark: #1e293b; // Slightly lighter surface
+$surface-elevated-dark: #334155; // For elevated elements like cards
+$text-dark: #f8fafc; // Very light gray-white
+$text-secondary-dark: #cbd5e1; // Medium light gray
+$text-muted-dark: #94a3b8; // Muted gray
+$border-dark: #475569; // Medium gray border
+$border-subtle-dark: #334155; // Subtle borders
+$shadow-dark: rgba(0, 0, 0, 0.5); // Stronger shadows for depth
+
+// Additional dark mode utility colors
+$success-dark: #10b981; // Green for success states
+$warning-dark: #f59e0b; // Amber for warnings
+$error-dark: #ef4444; // Red for errors
+$info-dark: #3b82f6; // Blue for info
+
+// Hover and focus states for dark mode
+$primary-hover-dark: #a855f7; // Darker hover state
+$secondary-hover-dark: #c026d3; // Darker secondary hover
+$surface-hover-dark: #2563eb; // Subtle surface hover
+
+// Opacity variations for overlays
+$overlay-dark: rgba(15, 23, 42, 0.8);
+$backdrop-dark: rgba(0, 0, 0, 0.6);

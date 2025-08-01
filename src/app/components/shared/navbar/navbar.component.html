@@ -1,21 +1,21 @@
-<header class="header container-fluid py-3 bg-light">
+<header class="header container-fluid py-3">
   <div class="d-flex justify-content-between align-items-center w-100">
     <!-- Logo / Brand -->
     <div class="logo-con d-flex fw-bold gap-2">
-      <span id="logo">V</span><span class="fs-4 fw-bold">Victor</span>
-
+      <span id="logo">V</span>
+      <span class="fs-4 fw-bold brand-text">Victor</span>
       <a
         href="assets/resume/Resume_Ayeni_Victor.pdf"
         download="Ayeni_Victor_Resume.pdf"
-        class="btn ms-3 d-flex align-items-center gap-1"
+        class="btn ms-3 d-flex align-items-center gap-1 download-btn"
       >
         <i class="fa-solid fa-download"></i>
-        <span>Download CV</span>
+        <span class="download-text">Download CV</span>
       </a>
     </div>
 
-    <!-- Navigation Links -->
-    <nav class="flex-grow-0 ms-4">
+    <!-- Desktop Navigation Links -->
+    <nav class="desktop-nav flex-grow-0 ms-4">
       <div class="row">
         @for (item of items; track $index) {
         <div class="col-6 col-md-2 mx-auto flex-grow-1">
@@ -30,5 +30,65 @@
         }
       </div>
     </nav>
+
+    <!-- Mobile Controls -->
+    <div class="mobile-controls d-flex align-items-center gap-3">
+      <!-- Dark Mode Toggle -->
+      <button
+        class="theme-toggle btn p-2"
+        (click)="toggleTheme()"
+        [attr.aria-label]="
+          isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'
+        "
+      >
+        <i [class]="isDarkMode ? 'fa-solid fa-sun' : 'fa-solid fa-moon'"></i>
+      </button>
+
+      <!-- Mobile Menu Toggle -->
+      <button
+        class="mobile-toggle btn p-2"
+        (click)="toggleMobileMenu()"
+        [class.active]="isMobileMenuOpen"
+        aria-label="Toggle navigation menu"
+      >
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
   </div>
+
+  <!-- Mobile Navigation Menu -->
+  <div class="mobile-nav" [class.open]="isMobileMenuOpen">
+    <nav class="mobile-nav-content">
+      @for (item of items; track $index) {
+      <a
+        [routerLink]="item.routeLink"
+        class="mobile-nav-link"
+        [routerLinkActive]="'active'"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="closeMobileMenu()"
+        >{{ item.label }}</a
+      >
+      }
+
+      <!-- Mobile Download Button -->
+      <a
+        href="assets/resume/Resume_Ayeni_Victor.pdf"
+        download="Ayeni_Victor_Resume.pdf"
+        class="mobile-download-btn d-flex align-items-center gap-2 mt-3"
+        (click)="closeMobileMenu()"
+      >
+        <i class="fa-solid fa-download"></i>
+        <span>Download CV</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div
+    class="mobile-overlay"
+    [class.active]="isMobileMenuOpen"
+    (click)="closeMobileMenu()"
+  ></div>
 </header>
