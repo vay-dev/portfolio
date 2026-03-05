@@ -1,0 +1,319 @@
+.home-page {
+  padding: 1.25rem;
+}
+
+.hero {
+  // 1) HERO SHELL
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100vh - 2.5rem);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(0, 255, 157, 0.42),
+      transparent 48%
+    ),
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(53, 230, 176, 0.38),
+      transparent 42%
+    ),
+    #05090b;
+  box-shadow: var(--shadow-neon);
+
+  // 2) BACKGROUND GRID LAYER
+  &__grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(53, 230, 176, 0.12) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(53, 230, 176, 0.12) 1px, transparent 1px);
+    background-size: 86px 86px;
+    opacity: 0.45;
+    pointer-events: none;
+  }
+
+  // 3) TOP NAV
+  &__nav {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 2rem 2.5rem 1rem;
+  }
+
+  // nav logo
+  &__logo {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    &:hover {
+      transform: scale(1.1) rotate(15deg);
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-size: var(--fs-16);
+    color: var(--text-soft);
+
+    .is-active {
+      color: var(--neon-2);
+    }
+
+    a:hover {
+      color: var(--text-main);
+    }
+  }
+
+  // 4) HERO MAIN GRID
+  &__content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 1rem;
+    padding: 2rem 2.5rem 2.5rem;
+  }
+
+  // 5) LEFT COLUMN (TEXT CONTENT)
+  &__left {
+    max-width: 670px;
+  }
+
+  &__title {
+    margin: 0;
+    max-width: 640px;
+    font-size: clamp(2.2rem, 4vw, 4rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: #f5f8f7;
+
+    span {
+      font-family: "Cormorant Garamond", "Times New Roman", serif;
+      font-style: italic;
+      font-weight: 700;
+    }
+  }
+
+  &__proof {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-top: 1rem;
+
+    p {
+      margin: 0;
+      color: #a8b8b1;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.15;
+    }
+  }
+
+  &__avatars {
+    display: flex;
+    align-items: center;
+
+    span {
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 50%;
+      border: 2px solid #0b1010;
+      margin-left: -0.45rem;
+      background: linear-gradient(145deg, #f8dbb1, #9a6956);
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:nth-child(2) {
+        background: linear-gradient(145deg, #f4d8cc, #b06758);
+      }
+
+      &:nth-child(3) {
+        background: linear-gradient(145deg, #cfe3ec, #487b99);
+      }
+
+      &:nth-child(4) {
+        background: linear-gradient(145deg, #ecdcbc, #83795f);
+      }
+    }
+  }
+
+  &__stats {
+    display: flex;
+    gap: 2.6rem;
+    margin-top: 2rem;
+
+    article {
+      position: relative;
+
+      + article::before {
+        content: "";
+        position: absolute;
+        left: -1.25rem;
+        top: 0.2rem;
+        width: 1px;
+        height: 3.7rem;
+        background: rgba(173, 194, 186, 0.45);
+      }
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 3rem;
+      line-height: 0.95;
+      color: #f4f7f5;
+    }
+
+    p {
+      margin: 0.4rem 0 0;
+      color: #a8b8b1;
+      font-size: 0.98rem;
+    }
+  }
+
+  &__card {
+    margin-top: 2rem;
+    width: min(26.5rem, 100%);
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.04)
+    );
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(8px);
+    padding: 1rem;
+
+    p {
+      margin: 0;
+      color: #d2ddda;
+      font-size: var(--fs-16);
+      line-height: 1.5;
+    }
+
+    em {
+      color: #f0f7f4;
+      font-style: italic;
+      font-family: "Cormorant Garamond", "Times New Roman", serif;
+      font-weight: 700;
+      font-size: var(--fs-16);
+    }
+  }
+
+  &__projects-btn {
+    margin-top: 0.9rem;
+    width: 100%;
+  }
+
+  // 6) RIGHT COLUMN (DECORATIVE VISUAL)
+  &__right {
+    position: relative;
+    min-height: 620px;
+
+    // background decorative code icon — scoped strictly here, never touches portrait
+    .code-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(2);
+      z-index: 1;
+      opacity: 0.4;
+    }
+
+    // portrait container — nested inside __right so it positions relative to this panel only
+    .hero__image-con {
+      position: absolute;
+      z-index: 2;
+      overflow: hidden;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 400px;
+
+      // portrait image — only targets the img inside this container
+      > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+
+  // 7) RESPONSIVE RULES
+  @media (max-width: 1080px) {
+    &__menu {
+      gap: 1rem;
+      font-size: 0.88rem;
+    }
+
+    &__content {
+      grid-template-columns: 1fr;
+    }
+
+    &__right {
+      min-height: 430px;
+    }
+
+    &__portrait {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__nav {
+      padding: 1.25rem 1.25rem 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    &__menu {
+      order: 3;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    &__content {
+      padding: 1.4rem 1.25rem 1.8rem;
+    }
+
+    &__title {
+      font-size: clamp(2rem, 10vw, 3rem);
+    }
+
+    &__stats {
+      gap: 1.5rem;
+
+      h2 {
+        font-size: 2.5rem;
+      }
+    }
+
+    &__right {
+      min-height: 340px;
+    }
+  }
+}
