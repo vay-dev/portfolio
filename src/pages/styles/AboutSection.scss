@@ -1,7 +1,7 @@
 .about-section {
   position: relative;
   margin-top: 2rem;
-  padding: 2rem;
+  padding: 6rem;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-lg);
   background: linear-gradient(
@@ -39,11 +39,10 @@
   &__left {
     p {
       margin: 1.2rem 0 0;
-      max-width: 42rem;
+      max-width: 32rem;
       color: var(--text-soft);
-      font-size: var(--fs-32);
-      font-size: clamp(20px, 1.55vw, 40px);
-      line-height: 1.45;
+      font-size: clamp(14px, 1.1vw, 18px);
+      line-height: 1.55;
     }
 
     em {
@@ -70,12 +69,14 @@
     font-size: var(--fs-24);
     font-size: clamp(14px, 1vw, 18px);
     font-weight: var(--fw-medium);
+    background: rgba(53, 230, 177, 0.105);
+    box-shadow: 0 0 15px rgba(53, 230, 177, 0.373);
   }
 
   &__title {
     margin: 1rem 0 0;
     color: var(--text-main);
-    font-size: clamp(36px, 5vw, 74px);
+    font-size: clamp(28px, 3.2vw, 52px);
     line-height: 1.03;
     letter-spacing: -0.02em;
 
@@ -90,13 +91,38 @@
   &__cta {
     margin-top: 2rem;
     border: 0;
-    border-bottom: 2px solid var(--neon-2);
-    padding: 0 0 0.5rem;
+    padding: 0 0 0.1rem;
     background: transparent;
-    color: var(--neon-2);
+    color: var(--neon-1);
     font-size: var(--fs-16);
     font-weight: var(--fw-bold);
     letter-spacing: 0.02em;
+    position: relative;
+    text-shadow:
+      0 0 12px rgba(0, 255, 157, 0.417),
+      0 0 20px rgba(0, 255, 157, 0.3);
+    transition: all 0.3s ease;
+
+    &::after {
+      content: "";
+      left: 0;
+      bottom: -10px;
+      width: 0%;
+      height: 2px;
+      background: var(--neon-2);
+      position: absolute;
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+
+    &:hover {
+      text-shadow:
+        0 0 18px rgba(0, 255, 157, 0.762),
+        0 0 40px rgba(0, 255, 157, 0.482);
+    }
   }
 
   &__right {
@@ -145,11 +171,15 @@
       padding: 1px;
       background: conic-gradient(
         from 0deg,
-        rgba(139, 92, 246, 0.55),   // purple
-        rgba(59, 130, 246, 0.50),   // blue
-        rgba(0, 255, 157, 0.45),    // green
-        rgba(100, 200, 255, 0.40),  // cyan
-        rgba(139, 92, 246, 0.55)    // back to purple
+        rgba(139, 92, 246, 0.55),
+        // purple
+        rgba(59, 130, 246, 0.5),
+        // blue
+        rgba(0, 255, 157, 0.45),
+        // green
+        rgba(100, 200, 255, 0.4),
+        // cyan
+        rgba(139, 92, 246, 0.55) // back to purple
       );
       // mask punches out the fill, leaving only the 1px gradient ring
       -webkit-mask:
@@ -170,11 +200,13 @@
       // stacked insets: deep black wall → dark teal mid → faint neon inner rim
       box-shadow:
         0 0 32px 10px rgba(0, 0, 0, 0.72),
-        inset 0 0 60px 20px rgba(0, 0, 0, 0.80),
-        inset 0 0 30px 6px rgba(2, 8, 6, 0.70),
+        inset 0 0 60px 20px rgba(0, 0, 0, 0.8),
+        inset 0 0 30px 6px rgba(2, 8, 6, 0.7),
         inset 0 0 8px 2px rgba(0, 200, 120, 0.08);
 
-      &::before { opacity: 0.45; }
+      &::before {
+        opacity: 0.45;
+      }
     }
 
     &--2 {
@@ -183,10 +215,12 @@
       box-shadow:
         0 0 22px 7px rgba(0, 0, 0, 0.62),
         inset 0 0 46px 14px rgba(0, 0, 0, 0.72),
-        inset 0 0 20px 4px rgba(2, 10, 7, 0.60),
-        inset 0 0 6px 1px rgba(0, 200, 130, 0.10);
+        inset 0 0 20px 4px rgba(2, 10, 7, 0.6),
+        inset 0 0 6px 1px rgba(0, 200, 130, 0.1);
 
-      &::before { opacity: 0.50; }
+      &::before {
+        opacity: 0.5;
+      }
     }
 
     &--3 {
@@ -195,10 +229,12 @@
       box-shadow:
         0 0 16px 5px rgba(0, 0, 0, 0.55),
         inset 0 0 34px 10px rgba(0, 0, 0, 0.65),
-        inset 0 0 14px 3px rgba(3, 12, 8, 0.50),
+        inset 0 0 14px 3px rgba(3, 12, 8, 0.5),
         inset 0 0 5px 1px rgba(0, 210, 140, 0.12);
 
-      &::before { opacity: 0.58; }
+      &::before {
+        opacity: 0.58;
+      }
     }
 
     &--4 {
@@ -207,10 +243,12 @@
       box-shadow:
         0 0 10px 3px rgba(0, 0, 0, 0.45),
         inset 0 0 22px 6px rgba(0, 0, 0, 0.55),
-        inset 0 0 10px 2px rgba(4, 14, 10, 0.40),
+        inset 0 0 10px 2px rgba(4, 14, 10, 0.4),
         inset 0 0 4px 1px rgba(0, 220, 150, 0.14);
 
-      &::before { opacity: 0.65; }
+      &::before {
+        opacity: 0.65;
+      }
     }
 
     // innermost — shallowest inset, brightest gradient border
@@ -220,13 +258,16 @@
       box-shadow:
         0 0 6px 2px rgba(0, 0, 0, 0.35),
         inset 0 0 12px 3px rgba(0, 0, 0, 0.45),
-        inset 0 0 6px 1px rgba(5, 16, 11, 0.30),
+        inset 0 0 6px 1px rgba(5, 16, 11, 0.3),
         inset 0 0 3px 1px rgba(0, 230, 160, 0.18);
 
-      &::before { opacity: 0.80; }
+      &::before {
+        opacity: 0.8;
+      }
     }
   }
 
+  // CORE CARD — center piece, full neon border + glow box-shadow
   &__core {
     position: absolute;
     top: 50%;
@@ -234,43 +275,163 @@
     width: 11rem;
     height: 11rem;
     transform: translate(-50%, -50%);
-    border: 1px solid rgba(84, 130, 255, 0.6);
     border-radius: 1.2rem;
-    background: rgba(18, 24, 28, 0.9);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    z-index: 4;
     display: grid;
     place-items: center;
     text-align: center;
-    z-index: 2;
 
-    span {
-      color: var(--text-main);
-      font-size: var(--fs-32);
-      font-weight: var(--fw-bold);
+    // dark base with subtle top-left shine (keyboard key depth)
+    background: radial-gradient(
+      ellipse at 28% 22%,
+      rgba(60, 75, 80, 0.55) 0%,
+      rgba(18, 24, 28, 0.96) 55%
+    );
+
+    // full neon border — glowing blue/purple edge all the way around
+    border: 1px solid rgba(84, 130, 255, 0.7);
+
+    // keyboard key depth: outer glow + inset top-light + deep bottom shadow
+    box-shadow:
+      0 0 18px 3px rgba(84, 130, 255, 0.35),
+      // outer neon glow
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      // top inner highlight (shine)
+      inset 0 -2px 6px rgba(0, 0, 0, 0.5),
+      // bottom inset depth
+      0 8px 24px rgba(0, 0, 0, 0.55); // drop shadow below
+
+    // icon color + transition
+    color: rgba(210, 225, 220, 0.9);
+    transition: box-shadow 0.35s ease;
+    cursor: pointer;
+
+    // core icon — visible gray (lucide stroke icon needs higher brightness than filled SVGs)
+    svg {
+      filter: brightness(0.55) saturate(0);
+      transition:
+        filter 0.4s ease,
+        transform 0.35s ease;
     }
 
-    small {
-      display: block;
-      color: var(--text-dim);
-      font-size: var(--fs-16);
-      font-weight: var(--fw-medium);
+    // hover — full white-blue brightness, slight scale
+    &:hover svg {
+      filter: brightness(1.1) saturate(1);
+      transform: scale(1.08);
+    }
+
+    // hover — neon blue glow grows
+    &:hover {
+      box-shadow:
+        0 0 28px 8px rgba(84, 130, 255, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18),
+        inset 0 -2px 6px rgba(0, 0, 0, 0.5),
+        0 12px 32px rgba(0, 0, 0, 0.65);
     }
   }
 
+  // OUTER NODE CARDS — partial arc silver border + keyboard key depth + top-left shine
   &__node {
     position: absolute;
-    width: 6.5rem;
-    height: 6.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.22);
+    width: 7rem;
+    height: 7rem;
     border-radius: 1rem;
-    background: rgba(18, 18, 18, 0.85);
-    color: var(--text-soft);
-    font-size: var(--fs-24);
-    font-weight: var(--fw-semibold);
+    z-index: 4;
     display: grid;
     place-items: center;
-    box-shadow: var(--shadow-card);
-    z-index: 2;
+    // smooth transitions for hover: icon color + box-shadow growth
+    transition: box-shadow 0.35s ease;
+    cursor: pointer;
+
+    // dark base + top-left shine radial highlight (the "keyboard key" inner light)
+    background: radial-gradient(
+      ellipse at 25% 20%,
+      rgba(80, 90, 88, 0.45) 0%,
+      rgba(18, 18, 18, 0.95) 50%
+    );
+
+    // SVG icon — desaturated gray by default, brand color revealed on hover
+    // brightness(0.9) keeps it visible on dark background — not invisible
+    svg {
+      filter: grayscale(1) brightness(0.9);
+      transition:
+        filter 0.4s ease,
+        transform 0.35s ease;
+    }
+
+    // HOVER — strip grayscale → brand color shows, slight scale up
+    &:hover svg {
+      filter: grayscale(0) brightness(1);
+      transform: scale(1.1);
+    }
+
+    // ANGULAR hover — brand red + dual drop-shadow simulates the darker→brighter gradient sweep
+    // #C3002F deep bloom below, #E32636 bright glow on top
+    &--angular:hover svg {
+      filter: grayscale(0) brightness(1.05)
+        drop-shadow(0 0 5px rgba(227, 38, 54, 0.75))
+        drop-shadow(0 3px 10px rgba(195, 0, 47, 0.55));
+    }
+
+    // PARTIAL ARC BORDER — conic-gradient starts bright silver at left-mid,
+    // sweeps bright through bottom-right curve, fades to transparent at top
+    border: 1px solid transparent;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: conic-gradient(
+        from 150deg,
+        rgba(255, 255, 255, 0) 0deg,
+        // top — dark/invisible
+        rgba(180, 190, 185, 0.55) 80deg,
+        // left-mid — silver brightens
+        rgba(220, 230, 225, 0.75) 140deg,
+        // bottom-left — peak silver
+        rgba(200, 215, 210, 0.6) 190deg,
+        // bottom — still bright
+        rgba(160, 175, 170, 0.35) 240deg,
+        // bottom-right — fading
+        rgba(255, 255, 255, 0) 300deg // right — invisible again
+      );
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      // border also transitions subtly on hover
+      transition: opacity 0.35s ease;
+    }
+
+    &:hover::before {
+      opacity: 1.4; // boost the arc border brightness on hover
+    }
+
+    // DEFAULT box-shadow — keyboard key depth
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -2px 5px rgba(0, 0, 0, 0.55),
+      0 6px 20px rgba(0, 0, 0, 0.5),
+      0 1px 0 rgba(0, 0, 0, 0.8);
+
+    // HOVER box-shadow — grows outward with a soft neon white glow
+    &:hover {
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        inset 0 -2px 5px rgba(0, 0, 0, 0.55),
+        0 0 24px 6px rgba(255, 255, 255, 0.06),
+        // wide soft outer glow
+        0 10px 36px rgba(0, 0, 0, 0.65),
+        // deeper drop shadow
+        0 1px 0 rgba(0, 0, 0, 0.8);
+    }
 
     &--top-left {
       top: 18%;
@@ -290,6 +451,13 @@
     &--bottom-right {
       bottom: 20%;
       right: 6%;
+    }
+
+    // Flutter — offset left toward Django side to match branch line endpoint
+    &--bottom-center {
+      bottom: 4%;
+      left: 42%;
+      transform: translateX(-50%);
     }
 
     &--bottom-left {
