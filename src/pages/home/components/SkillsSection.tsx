@@ -1,5 +1,6 @@
 import "./../styles/SkillsSection.scss";
 import FrontendBranches from "./FrontendBranches";
+import LangCarousel from "./LangCarousel";
 import { Code2 } from "lucide-react";
 import {
   SiAngular,
@@ -131,6 +132,8 @@ const SkillsSection = () => {
         </div>
 
       </div>
+
+      <LangCarousel />
     </section>
   );
 };

@@ -18,7 +18,11 @@
       "Bash(claude mcp remove stitch)",
       "Bash(claude mcp add stitch -s user -e STITCH_API_KEY=\"AQ.Ab8RN6LKlEvKI8iDcP0WNlGXuRMc5eB3iD2rX8O1me66-vIhMQ\" -- npx -y @_davideast/stitch-mcp proxy)",
       "mcp__stitch__create_project",
-      "mcp__stitch__generate_screen_from_text"
+      "mcp__stitch__generate_screen_from_text",
+      "WebSearch",
+      "mcp__nano-banana__generate_image",
+      "Bash(claude mcp remove nano-banana)",
+      "Bash(claude mcp add nano-banana -s user -e GEMINI_API_KEY=AIzaSyAQ1yyttcy_SxEItvt95bKRv56Jh980qQU -- npx -y @lyalindotcom/nano-banana-mcp)"
     ]
   }
 }

@@ -33,12 +33,6 @@ const Footer = () => {
             <div className="footer__logo-wrap">
               <img src="images/logo.png" alt="logo" />
             </div>
-            <nav className="footer__nav">
-              <a href="#">Home</a>
-              <a href="#">Projects</a>
-              <a href="#">About Me</a>
-              <a href="#">Contact</a>
-            </nav>
           </div>
 
           <div className="footer__contact">

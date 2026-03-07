@@ -1,12 +1,15 @@
 import "./styles/Home.scss";
+import "./styles/FloatingNav.scss";
 import CusButton from "../../components/Button";
 import AboutSection from "./components/AboutSection";
 import SkillsSection from "./components/SkillsSection";
 import Footer from "./components/Footer";
+import FloatingNav from "./components/FloatingNav";
 
 const Home = () => {
   return (
     <div className="home-page">
+      <FloatingNav />
       <section className="hero">
         {/* HERO BACKGROUND GRID */}
         <div className="hero__grid" />
