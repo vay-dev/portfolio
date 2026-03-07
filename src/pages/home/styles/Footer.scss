@@ -1,0 +1,223 @@
+.footer {
+  width: 100%;
+  border-top: 1px solid rgba(67, 182, 138, 0.1);
+  background: #0d1117;
+  padding: 5rem 0 2.5rem;
+
+  &__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+  }
+
+  // ── TOP CTA ──────────────────────────────────────────────
+  &__cta-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 6rem;
+  }
+
+  &__heading {
+    margin: 0 0 1.5rem;
+    font-size: clamp(2.2rem, 5vw, 3.75rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #f0f6f3;
+    line-height: 1.1;
+
+    em {
+      font-style: italic;
+      font-weight: 300;
+      color: #43b68a;
+    }
+  }
+
+  &__sub {
+    margin: 0 0 2.5rem;
+    max-width: 560px;
+    color: #8b9e97;
+    font-size: 1.1rem;
+    line-height: 1.65;
+  }
+
+  &__cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: #43b68a;
+    color: #0d1117;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+    box-shadow: 0 0 20px rgba(67, 182, 138, 0.3);
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(67, 182, 138, 0.5);
+    }
+
+    svg {
+      transition: transform 0.2s ease;
+    }
+
+    &:hover svg {
+      transform: translateX(3px);
+    }
+  }
+
+  // ── MIDDLE: NAV + CONTACT ────────────────────────────────
+  &__mid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgba(67, 182, 138, 0.1);
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 2rem;
+
+    a {
+      color: #8b9e97;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #43b68a;
+      }
+    }
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: right;
+
+    @media (max-width: 768px) {
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    p {
+      margin: 0 0 0.4rem;
+      color: #c8d8d2;
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+
+    a {
+      color: #43b68a;
+      text-decoration: none;
+      font-size: 0.95rem;
+      text-underline-offset: 4px;
+      transition: text-decoration-color 0.2s ease;
+
+      &:hover {
+        text-decoration: underline;
+        text-decoration-color: rgba(67, 182, 138, 0.5);
+      }
+    }
+  }
+
+  // ── BOTTOM: SOCIALS + COPYRIGHT ──────────────────────────
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 2.5rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+
+    @media (max-width: 576px) {
+      flex-direction: column;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 1px solid rgba(67, 182, 138, 0.2);
+    color: #43b68a;
+    text-decoration: none;
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &:hover {
+      background: rgba(67, 182, 138, 0.1);
+      border-color: #43b68a;
+      box-shadow: 0 0 15px rgba(67, 182, 138, 0.2);
+    }
+  }
+
+  &__copy {
+    color: #5a6e67;
+    font-size: 0.875rem;
+    font-weight: 500;
+
+    span {
+      color: #8b9e97;
+    }
+  }
+
+  // ── GLOW DECORATION ─────────────────────────────────────
+  &__glow {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 8rem;
+    background: rgba(67, 182, 138, 0.05);
+    filter: blur(120px);
+    pointer-events: none;
+  }
+}

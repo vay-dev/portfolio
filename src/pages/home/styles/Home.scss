@@ -79,6 +79,10 @@
       color: var(--neon-2);
     }
 
+    a {
+      transition: color 0.3s ease;
+    }
+
     a:hover {
       color: var(--text-main);
     }

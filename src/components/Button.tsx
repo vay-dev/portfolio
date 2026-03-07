@@ -11,7 +11,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   fullWidth?: boolean;
 };
 
-const Button = ({
+const CusButton = ({
   children,
   variant = "primary",
   size = "md",
@@ -37,4 +37,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default CusButton;

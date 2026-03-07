@@ -1,7 +1,8 @@
 import "./styles/Home.scss";
-import Button from "../components/Button";
+import CusButton from "../../components/Button";
 import AboutSection from "./components/AboutSection";
 import SkillsSection from "./components/SkillsSection";
+import Footer from "./components/Footer";
 
 const Home = () => {
   return (
@@ -23,7 +24,9 @@ const Home = () => {
             <a href="#about">About Me</a>
             <a href="#contact">Contact</a>
           </nav>
-          <Button className="hero__talk-btn">Let&apos;s Talk -&gt;</Button>
+          <CusButton className="hero__talk-btn">
+            Let&apos;s Talk -&gt;
+          </CusButton>
         </header>
 
         {/* HERO MAIN CONTENT WRAPPER */}
@@ -70,9 +73,9 @@ const Home = () => {
                 creative frontends with scalable backends to deliver meaningful
                 digital products.
               </p>
-              <Button className="hero__projects-btn" fullWidth>
+              <CusButton className="hero__projects-btn" fullWidth>
                 View Projects -&gt;
-              </Button>
+              </CusButton>
             </article>
           </div>
 
@@ -91,6 +94,7 @@ const Home = () => {
       </section>
       <AboutSection />
       <SkillsSection />
+      <Footer />
     </div>
   );
 };

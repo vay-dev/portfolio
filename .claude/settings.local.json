@@ -3,7 +3,22 @@
     "allow": [
       "Bash(npm install framer-motion)",
       "Bash(npm run build)",
-      "Bash(npm install @icons-pack/react-simple-icons)"
+      "Bash(npm install @icons-pack/react-simple-icons)",
+      "Bash(gcloud auth print-access-token)",
+      "Bash(gcloud config get-value project)",
+      "Bash(GCLOUD=\"/c/Users/USER/AppData/Local/Google/Cloud SDK/google-cloud-sdk/bin/gcloud\")",
+      "Bash(\"$GCLOUD\" config get-value project)",
+      "Bash(\"$GCLOUD\" auth print-access-token)",
+      "Bash(cmd /c \"gcloud config get-value project\")",
+      "Bash(powershell -Command \"& ''C:\\\\Users\\\\USER\\\\AppData\\\\Local\\\\Google\\\\Cloud SDK\\\\google-cloud-sdk\\\\bin\\\\gcloud.cmd'' config get-value project\")",
+      "Bash(claude mcp list)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(claude mcp add stitch -e GOOGLE_CLOUD_PROJECT=my-stitch-mcp-2026 -e GOOGLE_APPLICATION_CREDENTIALS=\"C:\\\\Users\\\\USER\\\\AppData\\\\Roaming\\\\gcloud\\\\legacy_credentials\\\\ayeniv69@gmail.com\\\\adc.json\" -- npx -y @_davideast/stitch-mcp proxy)",
+      "Bash(claude mcp get stitch)",
+      "Bash(claude mcp remove stitch)",
+      "Bash(claude mcp add stitch -s user -e STITCH_API_KEY=\"AQ.Ab8RN6LKlEvKI8iDcP0WNlGXuRMc5eB3iD2rX8O1me66-vIhMQ\" -- npx -y @_davideast/stitch-mcp proxy)",
+      "mcp__stitch__create_project",
+      "mcp__stitch__generate_screen_from_text"
     ]
   }
 }
