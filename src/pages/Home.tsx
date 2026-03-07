@@ -1,6 +1,7 @@
 import "./styles/Home.scss";
 import Button from "../components/Button";
 import AboutSection from "./components/AboutSection";
+import SkillsSection from "./components/SkillsSection";
 
 const Home = () => {
   return (
@@ -89,6 +90,7 @@ const Home = () => {
         </div>
       </section>
       <AboutSection />
+      <SkillsSection />
     </div>
   );
 };
