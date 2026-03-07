@@ -7,7 +7,13 @@ import {
   SiNextdotjs,
   SiBootstrap,
   SiTailwindcss,
+  SiPostgresql,
+  SiPrisma,
+  SiSqlite,
+  SiRedis,
+  SiFirebase,
 } from "@icons-pack/react-simple-icons";
+import { Database } from "lucide-react";
 
 const SkillsSection = () => {
   return (
@@ -56,12 +62,44 @@ const SkillsSection = () => {
           </div>
         </div>
 
-        {/* DATABASES CARD — placeholder */}
-        <div className="skills-section__card skills-section__card--placeholder">
+        {/* DATABASES CARD — concentric rings with icons on ring borders */}
+        <div className="skills-section__card skills-section__card--databases">
+
+          {/* RINGS — same CSS ring technique as about section, scaled to card */}
+          <div className="skills-section__db-rings">
+            <div className="skills-section__db-ring skills-section__db-ring--1" />
+            <div className="skills-section__db-ring skills-section__db-ring--2" />
+            <div className="skills-section__db-ring skills-section__db-ring--3" />
+            <div className="skills-section__db-ring skills-section__db-ring--4" />
+            <div className="skills-section__db-ring skills-section__db-ring--5" />
+          </div>
+
+          {/* CENTER CORE */}
+          <div className="skills-section__db-core">
+            <Database size={36} strokeWidth={1.2} />
+          </div>
+
+          {/* RING ICONS — one per ring, positioned on the ring border */}
+          <div className="skills-section__db-icon skills-section__db-icon--1" title="PostgreSQL">
+            <SiPostgresql size={28} color="#336791" />
+          </div>
+          <div className="skills-section__db-icon skills-section__db-icon--2" title="Prisma">
+            <SiPrisma size={28} color="#2D3748" />
+          </div>
+          <div className="skills-section__db-icon skills-section__db-icon--3" title="SQLite">
+            <SiSqlite size={28} color="#003B57" />
+          </div>
+          <div className="skills-section__db-icon skills-section__db-icon--4" title="Redis">
+            <SiRedis size={28} color="#DC382D" />
+          </div>
+          <div className="skills-section__db-icon skills-section__db-icon--5" title="Firebase">
+            <SiFirebase size={28} color="#FFCA28" />
+          </div>
+
           <div className="skills-section__card-label">
             <h3>Databases</h3>
-            <p>PostgreSQL</p>
-            <em>Managing structured data with reliability.</em>
+            <p>PostgreSQL, Prisma, SQLite, Redis, Firebase</p>
+            <em>Managing structured &amp; unstructured data with reliability.</em>
           </div>
         </div>
 
