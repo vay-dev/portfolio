@@ -5,6 +5,7 @@ import AboutSection from "./components/AboutSection";
 import SkillsSection from "./components/SkillsSection";
 import Footer from "./components/Footer";
 import FloatingNav from "./components/FloatingNav";
+// import MobileBottomNav from "./components/MobileBottomNav";
 
 const Home = () => {
   return (

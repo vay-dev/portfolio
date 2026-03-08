@@ -15,14 +15,11 @@
       "Bash(echo \"exit: $?\")",
       "Bash(claude mcp add stitch -e GOOGLE_CLOUD_PROJECT=my-stitch-mcp-2026 -e GOOGLE_APPLICATION_CREDENTIALS=\"C:\\\\Users\\\\USER\\\\AppData\\\\Roaming\\\\gcloud\\\\legacy_credentials\\\\ayeniv69@gmail.com\\\\adc.json\" -- npx -y @_davideast/stitch-mcp proxy)",
       "Bash(claude mcp get stitch)",
-      "Bash(claude mcp remove stitch)",
-      "Bash(claude mcp add stitch -s user -e STITCH_API_KEY=\"AQ.Ab8RN6LKlEvKI8iDcP0WNlGXuRMc5eB3iD2rX8O1me66-vIhMQ\" -- npx -y @_davideast/stitch-mcp proxy)",
+      "Bash(claude mcp remove stitch -- npx -y @_davideast/stitch-mcp proxy)",
       "mcp__stitch__create_project",
       "mcp__stitch__generate_screen_from_text",
-      "WebSearch",
-      "mcp__nano-banana__generate_image",
-      "Bash(claude mcp remove nano-banana)",
-      "Bash(claude mcp add nano-banana -s user -e GEMINI_API_KEY=AIzaSyAQ1yyttcy_SxEItvt95bKRv56Jh980qQU -- npx -y @lyalindotcom/nano-banana-mcp)"
+      "WebSearch"
     ]
-  }
+  },
+  "enabledMcpjsonServers": ["stitch"]
 }
