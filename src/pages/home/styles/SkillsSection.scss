@@ -43,8 +43,13 @@
   &__grid {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: 1fr 1fr;
     gap: 1.25rem;
+
+    // all cards fill their grid cell height
+    .skills-section__card {
+      height: 100%;
+    }
 
     // frontend spans full left column height
     .skills-section__card--frontend {
@@ -326,10 +331,34 @@
       right: 6%;
       transform: translateY(-50%);
     }
+
+    // PIPELINE nodes — used by Backend card (horizontal layout)
+    // x≈14 and x≈86 in viewBox → ~14% and ~86% of card width
+    &--pipeline-left {
+      top: 50%;
+      left: 14%;
+      transform: translate(-50%, -50%);
+    }
+
+    &--pipeline-right {
+      top: 50%;
+      left: 86%;
+      transform: translate(-50%, -50%);
+    }
   }
 
   &__card--databases {
-    min-height: 420px;
+    min-height: 320px;
+  }
+
+  &__card--backend {
+    min-height: 320px;
+  }
+
+  // BACKEND core — slightly smaller than frontend core, same glass style
+  &__core--backend {
+    width: 5rem;
+    height: 5rem;
   }
 
   // DATABASES CARD — rings container

@@ -1,7 +1,9 @@
 import "./../styles/SkillsSection.scss";
 import FrontendBranches from "./FrontendBranches";
+import BackendBranches from "./BackendBranches";
+import PaystackBranches from "./PaystackBranches";
 import LangCarousel from "./LangCarousel";
-import { Code2 } from "lucide-react";
+import { Code2, Database, Server, CreditCard } from "lucide-react";
 import {
   SiAngular,
   SiReact,
@@ -13,8 +15,17 @@ import {
   SiSqlite,
   SiRedis,
   SiFirebase,
+  SiNodedotjs,
+  SiDjango,
 } from "@icons-pack/react-simple-icons";
-import { Database } from "lucide-react";
+
+const PaystackIcon = ({ size = 32 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none">
+    <path d="M4 7h16v2.5H4z" fill="#00C3F7" />
+    <path d="M4 11h16v2.5H4z" fill="#00C3F7" opacity="0.7" />
+    <path d="M4 15h10v2.5H4z" fill="#00C3F7" opacity="0.4" />
+  </svg>
+);
 
 const SkillsSection = () => {
   return (
@@ -104,29 +115,58 @@ const SkillsSection = () => {
           </div>
         </div>
 
-        {/* BACKEND CARD — placeholder */}
-        <div className="skills-section__card skills-section__card--placeholder">
+        {/* BACKEND CARD — horizontal pipeline: Node.js ←— Server core —→ Django */}
+        <div className="skills-section__card skills-section__card--backend">
+          <BackendBranches />
+
+          {/* LEFT NODE — Node.js */}
+          <div
+            className="skills-section__node skills-section__node--pipeline-left"
+            title="Node.js"
+          >
+            <SiNodedotjs size={32} color="#339933" />
+          </div>
+
+          {/* CORE */}
+          <div className="skills-section__core skills-section__core--backend">
+            <Server size={36} strokeWidth={1.2} />
+          </div>
+
+          {/* RIGHT NODE — Django */}
+          <div
+            className="skills-section__node skills-section__node--pipeline-right"
+            title="Django"
+          >
+            <SiDjango size={32} color="#092E20" />
+          </div>
+
           <div className="skills-section__card-label">
             <h3>Backend</h3>
-            <p>Django, Node.js</p>
+            <p>Node.js, Django</p>
             <em>Creating APIs and server-side logic that scale.</em>
           </div>
         </div>
 
-        {/* AUTHENTICATION CARD — placeholder */}
-        <div className="skills-section__card skills-section__card--placeholder">
-          <div className="skills-section__card-label">
-            <h3>Authentication</h3>
-            <p>JWT</p>
-            <em>Secure login &amp; role-based access made simple.</em>
-          </div>
-        </div>
+        {/* PAYMENTS CARD — single left node (Paystack) → core */}
+        <div className="skills-section__card skills-section__card--backend">
+          <PaystackBranches />
 
-        {/* PAYMENTS CARD — placeholder */}
-        <div className="skills-section__card skills-section__card--placeholder">
+          {/* LEFT NODE — Paystack */}
+          <div
+            className="skills-section__node skills-section__node--pipeline-left"
+            title="Paystack"
+          >
+            <PaystackIcon size={32} />
+          </div>
+
+          {/* CORE */}
+          <div className="skills-section__core skills-section__core--backend">
+            <CreditCard size={36} strokeWidth={1.2} />
+          </div>
+
           <div className="skills-section__card-label">
             <h3>Payments</h3>
-            <p>Stripe, Paypal</p>
+            <p>Paystack</p>
             <em>Seamless checkout and payment integration.</em>
           </div>
         </div>
