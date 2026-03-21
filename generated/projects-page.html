@@ -1,0 +1,603 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>VAY — Projects</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#9effc8",
+              "secondary-container": "#46464e",
+              "surface-bright": "#2c2b33",
+              "secondary-dim": "#d6d3dd",
+              "on-tertiary-fixed": "#003840",
+              "surface-tint": "#9effc8",
+              "inverse-on-surface": "#55545a",
+              "on-primary-container": "#005a38",
+              "on-primary": "#00643e",
+              "outline-variant": "#48474d",
+              background: "#0e0e13",
+              "primary-dim": "#00ec9a",
+              "surface-container-high": "#1f1f26",
+              "surface-container-lowest": "#000000",
+              "on-background": "#f8f5fd",
+              secondary: "#e4e1eb",
+              "tertiary-container": "#00e3fe",
+              surface: "#0e0e13",
+              "on-primary-fixed-variant": "#00653f",
+              "inverse-primary": "#006d45",
+              "error-dim": "#d7383b",
+              "on-surface-variant": "#acaab1",
+              "on-tertiary-container": "#004d57",
+              "secondary-fixed-dim": "#d6d3dd",
+              "tertiary-fixed-dim": "#00d4ed",
+              "on-secondary-fixed": "#3f3f46",
+              "surface-dim": "#0e0e13",
+              "surface-variant": "#25252c",
+              "inverse-surface": "#fbf8ff",
+              tertiary: "#84ecff",
+              outline: "#76747b",
+              error: "#ff716c",
+              "secondary-fixed": "#e4e1eb",
+              "primary-container": "#1dfba5",
+              "on-surface": "#f8f5fd",
+              "on-primary-fixed": "#00452a",
+              "on-tertiary-fixed-variant": "#005762",
+              "primary-fixed": "#1dfba5",
+              "on-secondary-container": "#d1cfd9",
+              "on-tertiary": "#005762",
+              "error-container": "#9f0519",
+              "tertiary-fixed": "#00e3fe",
+              "on-error-container": "#ffa8a3",
+              "on-secondary-fixed-variant": "#5b5b63",
+              "surface-container-highest": "#25252c",
+              "on-secondary": "#525159",
+              "surface-container": "#19191f",
+              "on-error": "#490006",
+              "tertiary-dim": "#00d4ed",
+              "primary-fixed-dim": "#00ec9a",
+              "surface-container-low": "#131318",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .glass-nav {
+        background: rgba(19, 19, 24, 0.7);
+        backdrop-filter: blur(20px);
+      }
+      .hero-gradient {
+        background:
+          radial-gradient(
+            circle at top right,
+            rgba(0, 245, 160, 0.08),
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at bottom left,
+            rgba(0, 227, 254, 0.05),
+            transparent 40%
+          );
+      }
+      .primary-glow-hover:hover {
+        box-shadow: 0 0 20px rgba(0, 245, 160, 0.15);
+      }
+      .cta-gradient {
+        background: linear-gradient(135deg, #00ec9a 0%, #1dfba5 100%);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container"
+  >
+    <!-- TopNavBar -->
+    <nav
+      class="fixed top-0 w-full z-50 glass-nav shadow-[0_0_20px_rgba(0,245,160,0.05)]"
+    >
+      <div
+        class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto"
+      >
+        <div
+          class="text-2xl font-black tracking-tighter text-[#f8f5fd] font-headline"
+        >
+          VAY
+        </div>
+        <div
+          class="hidden md:flex items-center gap-8 font-headline font-bold tracking-tighter"
+        >
+          <a
+            class="text-[#acaab1] hover:text-[#f8f5fd] transition-colors transition-all duration-300"
+            href="#"
+            >Home</a
+          >
+          <a
+            class="text-[#00f5a0] border-b-2 border-[#00f5a0] pb-1 transition-all duration-300"
+            href="#"
+            >Projects</a
+          >
+          <a
+            class="text-[#acaab1] hover:text-[#f8f5fd] transition-colors transition-all duration-300"
+            href="#"
+            >Blog</a
+          >
+          <a
+            class="text-[#acaab1] hover:text-[#f8f5fd] transition-colors transition-all duration-300"
+            href="#"
+            >Contact</a
+          >
+        </div>
+        <div class="md:hidden">
+          <span class="material-symbols-outlined text-primary">menu</span>
+        </div>
+      </div>
+    </nav>
+    <main class="pt-32 pb-20 px-6 hero-gradient min-h-screen">
+      <div class="max-w-7xl mx-auto">
+        <!-- Hero Section -->
+        <section class="mb-20">
+          <div
+            class="flex flex-col md:flex-row md:items-end justify-between gap-6"
+          >
+            <div class="space-y-4">
+              <span
+                class="text-primary font-label text-sm uppercase tracking-widest font-bold"
+                >Portfolio</span
+              >
+              <h1
+                class="text-5xl md:text-7xl font-bold font-headline tracking-tighter text-on-surface"
+              >
+                My Projects
+              </h1>
+              <p class="text-on-surface-variant text-lg max-w-xl font-body">
+                Things I've built — from idea to production. Focused on
+                performance, scalability, and cinematic user experiences.
+              </p>
+            </div>
+            <div class="hidden lg:block text-right">
+              <span class="text-primary text-xs font-mono opacity-50"
+                >SYSTEM_STATUS: ACTIVE</span
+              >
+              <div
+                class="text-on-surface-variant text-sm mt-1 uppercase tracking-widest"
+              >
+                Built with precision
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Filter Bar -->
+        <div class="mb-12 flex flex-wrap gap-3 items-center">
+          <button
+            class="px-6 py-2 rounded-full cta-gradient text-on-primary-container font-semibold text-sm transition-transform active:scale-95"
+          >
+            All
+          </button>
+          <button
+            class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors text-sm font-medium"
+          >
+            Frontend
+          </button>
+          <button
+            class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors text-sm font-medium"
+          >
+            Backend
+          </button>
+          <button
+            class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors text-sm font-medium"
+          >
+            Mobile
+          </button>
+          <button
+            class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors text-sm font-medium"
+          >
+            Fullstack
+          </button>
+        </div>
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project Card 1 (Featured) -->
+          <div
+            class="group relative bg-surface-container-high rounded-xl overflow-hidden border border-primary/20 primary-glow-hover transition-all duration-500 hover:-translate-y-2"
+          >
+            <div class="relative h-56 overflow-hidden">
+              <div
+                class="absolute inset-0 bg-primary/10 group-hover:bg-primary/5 transition-colors z-10"
+              ></div>
+              <img
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                data-alt="Cyberpunk style coding interface with neon green accents"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWjDsTdnApy3dEqrOznoDK0y_yPs5bDuqlnSYeud569SKuWnuF0xwHfvOCvB7auC51PgvY8dPgyktDUEzPgQqB4E3dW207WBVyDnp185pfv0PzgBwX5iDeABsf9cwSewyTzZNzCHR9fkIrp0EWbJlZuz3R0Dwa8hPr-2FUalDiLQ_x1zK7h7L8iZVlFsQQjfMIbbKAsLwLFG1V-TA2I20eXQ5yI2QulmPrpgaM84dgrQZPdNSWsSm-UyBO3D9Rszy8iEDtBMEPNg"
+              />
+            </div>
+            <div class="p-8 space-y-4">
+              <div class="flex justify-between items-start">
+                <h3 class="text-2xl font-bold font-headline text-on-surface">
+                  NeonTerminal
+                </h3>
+                <span
+                  class="text-primary material-symbols-outlined"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >star</span
+                >
+              </div>
+              <p class="text-on-surface-variant font-body leading-relaxed">
+                A high-performance shell emulator built with Rust and
+                WebAssembly for browser-based dev environments.
+              </p>
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container-highest text-primary text-xs font-bold font-label tracking-tighter uppercase"
+                  >Rust</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container-highest text-primary text-xs font-bold font-label tracking-tighter uppercase"
+                  >WASM</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container-highest text-primary text-xs font-bold font-label tracking-tighter uppercase"
+                  >TypeScript</span
+                >
+              </div>
+              <div class="flex gap-4 pt-6">
+                <button
+                  class="flex-1 py-3 border border-primary text-primary rounded-lg text-sm font-bold hover:bg-primary/5 transition-colors flex items-center justify-center gap-2"
+                >
+                  <span class="material-symbols-outlined text-sm"
+                    >open_in_new</span
+                  >
+                  Live Demo
+                </button>
+                <button
+                  class="flex-1 py-3 text-on-surface-variant hover:text-on-surface rounded-lg text-sm font-bold transition-colors flex items-center justify-center gap-2"
+                >
+                  <span class="material-symbols-outlined text-sm">code</span>
+                  GitHub
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Project Card 2 -->
+          <div
+            class="group relative bg-surface-container-high rounded-xl overflow-hidden primary-glow-hover transition-all duration-500 hover:-translate-y-2"
+          >
+            <div class="relative h-56 overflow-hidden">
+              <div
+                class="absolute inset-0 bg-primary/10 group-hover:bg-primary/5 transition-colors z-10"
+              ></div>
+              <img
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                data-alt="Abstract data visualization dashboard with dark interface"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpQY_BMG6oetC26gTFLa7LEFeSQ6qrBesGideX8VQpFDSz76ZaD421BxCxTVbT4bkVlV1GSZhAY_d831xAROCYahUbMse80QzHM-v7nyU-AEME9M9cSy9FvfHvcx2gMPkp1H5Dj4YaKufPRsAyon8Tf-gHgnYr9PfZZ3XiogAKQygFmvnhZTc4r6TYQdk0fNrtiDeYRZkgWiNYNnBilpjAOnz4mlFdhQCYB08mMPZpYfxV9M_nYAZUQl0dOdyVoZ8smYgYH4dRSw"
+              />
+            </div>
+            <div class="p-8 space-y-4">
+              <h3 class="text-2xl font-bold font-headline text-on-surface">
+                Vortex Analytics
+              </h3>
+              <p class="text-on-surface-variant font-body leading-relaxed">
+                Real-time data processing engine handling 10k+ events/sec with
+                automated predictive modeling.
+              </p>
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container-highest text-primary text-xs font-bold font-label tracking-tighter uppercase"
+                  >Node.js</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container-highest text-primary text-xs font-bold font-label tracking-tighter uppercase"
+                  >Redis</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container-highest text-primary text-xs font-bold font-label tracking-tighter uppercase"
+                  >Next.js</span
+                >
+              </div>
+              <div class="flex gap-4 pt-6">
+                <button
+                  class="flex-1 py-3 border border-primary text-primary rounded-lg text-sm font-bold hover:bg-primary/5 transition-colors flex items-center justify-center gap-2"
+                >
+                  <span class="material-symbols-outlined text-sm"
+                    >open_in_new</span
+                  >
+                  Live Demo
+                </button>
+                <button
+                  class="flex-1 py-3 text-on-surface-variant hover:text-on-surface rounded-lg text-sm font-bold transition-colors flex items-center justify-center gap-2"
+                >
+                  <span class="material-symbols-outlined text-sm">code</span>
+                  GitHub
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Project Card 3 -->
+          <div
+            class="group relative bg-surface-container-high rounded-xl overflow-hidden primary-glow-hover transition-all duration-500 hover:-translate-y-2"
+          >
+            <div class="relative h-56 overflow-hidden">
+              <div
+                class="absolute inset-0 bg-primary/10 group-hover:bg-primary/5 transition-colors z-10"
+              ></div>
+              <img
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                data-alt="Sleek mobile app interface mockup on dark background"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5hBNM0JQrIoKodkrX2YLzni3gWQgAYP99rNiyMHWulBpgIq9mRH6ilOt0WQ-Ak9ItBL8LutcHxKbxY_FTirZ4xQhwFyfexk_Z9FuchQz-TyBE0MulSLZtb4p72VkErcZRBxlHnzZR1SWyEu9SNV9GNFyGZIS4E03Z3idYL7DCbvxUiHAVBNlalF4AQKF5jAmMLwwcWpMFU5RPPvuJido1D0MfXIglLh4XavfVdFIq8J2wULglUdHsvMoqmPijxAyxW0XuhJLc9g"
+              />
+            </div>
+            <div class="p-8 space-y-4">
+              <h3 class="text-2xl font-bold font-headline text-on-surface">
+                Zenith Mobile
+              </h3>
+              <p class="text-on-surface-variant font-body leading-relaxed">
+                A focus-driven task management app featuring custom
+                physics-based UI and cross-platform sync.
+              </p>
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container-highest text-primary text-xs font-bold font-label tracking-tighter uppercase"
+                  >Flutter</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container-highest text-primary text-xs font-bold font-label tracking-tighter uppercase"
+                  >Dart</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container-highest text-primary text-xs font-bold font-label tracking-tighter uppercase"
+                  >Firebase</span
+                >
+              </div>
+              <div class="flex gap-4 pt-6">
+                <button
+                  class="flex-1 py-3 border border-primary text-primary rounded-lg text-sm font-bold hover:bg-primary/5 transition-colors flex items-center justify-center gap-2"
+                >
+                  <span class="material-symbols-outlined text-sm"
+                    >open_in_new</span
+                  >
+                  Live Demo
+                </button>
+                <button
+                  class="flex-1 py-3 text-on-surface-variant hover:text-on-surface rounded-lg text-sm font-bold transition-colors flex items-center justify-center gap-2"
+                >
+                  <span class="material-symbols-outlined text-sm">code</span>
+                  GitHub
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Project Card 4 -->
+          <div
+            class="group relative bg-surface-container-high rounded-xl overflow-hidden primary-glow-hover transition-all duration-500 hover:-translate-y-2"
+          >
+            <div class="relative h-56 overflow-hidden">
+              <div
+                class="absolute inset-0 bg-primary/10 group-hover:bg-primary/5 transition-colors z-10"
+              ></div>
+              <img
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                data-alt="High tech server room with green led lights"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuATAQfvlzXcwhHvrxLM_8uN37LuSH2yam4BdwOLuHpEHaMeiSaDy4SUXOJrBnIjvSa25a05BegFNTdDwGqLtqaely0t4cqXklvCaOcFDgLKy4Z6smhFb6z9-tpfWVwUILSXoGXKqON84RurjybO9-2qKkSx-KdFz9V1XEMJ_mnuTLjV__AH-trFHOo1E5tCp_zf8bHSfDC1z4J_XrjImGEWdfOqKcBLAWlV4Qw8eZrmdXp4aBViAgOTDxw7tTNmbazjlwOkJknhMA"
+              />
+            </div>
+            <div class="p-8 space-y-4">
+              <h3 class="text-2xl font-bold font-headline text-on-surface">
+                Core Infrastructure
+              </h3>
+              <p class="text-on-surface-variant font-body leading-relaxed">
+                Infrastructure as Code patterns for deploying highly-available
+                microservices using Terraform.
+              </p>
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container-highest text-primary text-xs font-bold font-label tracking-tighter uppercase"
+                  >Go</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container-highest text-primary text-xs font-bold font-label tracking-tighter uppercase"
+                  >AWS</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container-highest text-primary text-xs font-bold font-label tracking-tighter uppercase"
+                  >Terraform</span
+                >
+              </div>
+              <div class="flex gap-4 pt-6">
+                <button
+                  class="flex-1 py-3 border border-primary text-primary rounded-lg text-sm font-bold hover:bg-primary/5 transition-colors flex items-center justify-center gap-2"
+                >
+                  <span class="material-symbols-outlined text-sm"
+                    >open_in_new</span
+                  >
+                  Documentation
+                </button>
+                <button
+                  class="flex-1 py-3 text-on-surface-variant hover:text-on-surface rounded-lg text-sm font-bold transition-colors flex items-center justify-center gap-2"
+                >
+                  <span class="material-symbols-outlined text-sm">code</span>
+                  GitHub
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Project Card 5 -->
+          <div
+            class="group relative bg-surface-container-high rounded-xl overflow-hidden primary-glow-hover transition-all duration-500 hover:-translate-y-2"
+          >
+            <div class="relative h-56 overflow-hidden">
+              <div
+                class="absolute inset-0 bg-primary/10 group-hover:bg-primary/5 transition-colors z-10"
+              ></div>
+              <img
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                data-alt="Abstract 3D neon shapes floating in dark space"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxNa6xwEoHUJ-nL4-BHmoizkxATRQv9irobxF-qBgkPRpYFZ4MizmTNaI8hFraJmAW4dcYTxXsWB45z67y4BTnua4YrdAAnU6y3HSqCifZ6flxgkwIU6MSM8ArSHKVCUCK3ZQHUiUhg9s5IIIA-_yPgqo7It3mSwO8mDRMlMIQdP3TyzC1Upr0RZEkCQYuVOW8NCFl8gpY9f25BpofJq48aNc9rdq6Aj_S7g5HVhfrxhjLtViVOOLbcwt-LQpqUxWTBWCpDuxYdg"
+              />
+            </div>
+            <div class="p-8 space-y-4">
+              <h3 class="text-2xl font-bold font-headline text-on-surface">
+                Prism Engine
+              </h3>
+              <p class="text-on-surface-variant font-body leading-relaxed">
+                A lightweight 2D rendering engine optimized for low-end devices
+                with WebGL2 support.
+              </p>
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container-highest text-primary text-xs font-bold font-label tracking-tighter uppercase"
+                  >C++</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container-highest text-primary text-xs font-bold font-label tracking-tighter uppercase"
+                  >WebGL</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container-highest text-primary text-xs font-bold font-label tracking-tighter uppercase"
+                  >GLSL</span
+                >
+              </div>
+              <div class="flex gap-4 pt-6">
+                <button
+                  class="flex-1 py-3 border border-primary text-primary rounded-lg text-sm font-bold hover:bg-primary/5 transition-colors flex items-center justify-center gap-2"
+                >
+                  <span class="material-symbols-outlined text-sm"
+                    >open_in_new</span
+                  >
+                  Live Demo
+                </button>
+                <button
+                  class="flex-1 py-3 text-on-surface-variant hover:text-on-surface rounded-lg text-sm font-bold transition-colors flex items-center justify-center gap-2"
+                >
+                  <span class="material-symbols-outlined text-sm">code</span>
+                  GitHub
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Project Card 6 -->
+          <div
+            class="group relative bg-surface-container-high rounded-xl overflow-hidden primary-glow-hover transition-all duration-500 hover:-translate-y-2"
+          >
+            <div class="relative h-56 overflow-hidden">
+              <div
+                class="absolute inset-0 bg-primary/10 group-hover:bg-primary/5 transition-colors z-10"
+              ></div>
+              <img
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                data-alt="Close up of mechanical keyboard with green backlight"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrWmaGwiP7gDd6HDVp5MrwAnvO_q69zWxS2EJqDNJpS7GTaIxxtOigHcj1DK7cc1FqjFKNu_URzrtbIYZ7DLq3uywt-0vPRTms65xtQ4Agf4NGNKp-Xv0oiQxwUPDRD-ZqClc1pkBWIcLHc1VC3olrhPDPLrfwFVoQW1DKmJGh4P3lgYD_s_hRvcmL9FKmUP9krY8VK9xJIsJU0wy8i5GFLf2vFJoqniLQi6mlC8RXhfckB5qnZ4CK0A9_PSMReEtCXtkVzn07rg"
+              />
+            </div>
+            <div class="p-8 space-y-4">
+              <h3 class="text-2xl font-bold font-headline text-on-surface">
+                OmniSearch
+              </h3>
+              <p class="text-on-surface-variant font-body leading-relaxed">
+                Distributed search engine utilizing vector embeddings for
+                semantic code exploration.
+              </p>
+              <div class="flex flex-wrap gap-2 pt-2">
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container-highest text-primary text-xs font-bold font-label tracking-tighter uppercase"
+                  >Python</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container-highest text-primary text-xs font-bold font-label tracking-tighter uppercase"
+                  >PyTorch</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container-highest text-primary text-xs font-bold font-label tracking-tighter uppercase"
+                  >Elastic</span
+                >
+              </div>
+              <div class="flex gap-4 pt-6">
+                <button
+                  class="flex-1 py-3 border border-primary text-primary rounded-lg text-sm font-bold hover:bg-primary/5 transition-colors flex items-center justify-center gap-2"
+                >
+                  <span class="material-symbols-outlined text-sm"
+                    >open_in_new</span
+                  >
+                  Live Demo
+                </button>
+                <button
+                  class="flex-1 py-3 text-on-surface-variant hover:text-on-surface rounded-lg text-sm font-bold transition-colors flex items-center justify-center gap-2"
+                >
+                  <span class="material-symbols-outlined text-sm">code</span>
+                  GitHub
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full py-12 border-t border-[#48474d]/15 bg-[#0e0e13]">
+      <div
+        class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto gap-4"
+      >
+        <div
+          class="font-['Inter'] text-xs uppercase tracking-widest text-[#acaab1]"
+        >
+          © 2024 VAY. Built with Terminal Precision.
+        </div>
+        <div class="flex gap-8">
+          <a
+            class="font-['Inter'] text-xs uppercase tracking-widest text-[#acaab1] hover:text-[#00f5a0] transition-colors duration-200 opacity-80 hover:opacity-100"
+            href="#"
+            >GitHub</a
+          >
+          <a
+            class="font-['Inter'] text-xs uppercase tracking-widest text-[#acaab1] hover:text-[#00f5a0] transition-colors duration-200 opacity-80 hover:opacity-100"
+            href="#"
+            >LinkedIn</a
+          >
+          <a
+            class="font-['Inter'] text-xs uppercase tracking-widest text-[#acaab1] hover:text-[#00f5a0] transition-colors duration-200 opacity-80 hover:opacity-100"
+            href="#"
+            >Twitter</a
+          >
+        </div>
+      </div>
+    </footer>
+    <!-- Cinematic Scroll Indicator -->
+    <div
+      class="fixed right-6 top-1/2 -translate-y-1/2 h-40 w-px bg-outline-variant/30 hidden lg:block"
+    >
+      <div
+        class="absolute top-0 left-0 w-full h-1/3 cta-gradient shadow-[0_0_10px_rgba(0,245,160,0.5)]"
+      ></div>
+    </div>
+  </body>
+</html>

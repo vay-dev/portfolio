@@ -1,6 +1,8 @@
 import "./styles/Home.scss";
 import "./styles/FloatingNav.scss";
+import { useNavigate } from "react-router-dom";
 import CusButton from "../../components/Button";
+import Navbar from "../../components/Navbar";
 import AboutSection from "./components/AboutSection";
 import SkillsSection from "./components/SkillsSection";
 import Footer from "./components/Footer";
@@ -8,6 +10,8 @@ import FloatingNav from "./components/FloatingNav";
 // import MobileBottomNav from "./components/MobileBottomNav";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="home-page">
       <FloatingNav />
@@ -16,22 +20,7 @@ const Home = () => {
         <div className="hero__grid" />
 
         {/* HERO TOP NAVBAR */}
-        <header className="hero__nav">
-          <div className="hero__logo">
-            <img src="images/logo.png" alt="logo" />
-          </div>
-          <nav className="hero__menu">
-            <a href="#home" className="is-active">
-              Home
-            </a>
-            <a href="#projects">Projects</a>
-            <a href="#about">About Me</a>
-            <a href="#contact">Contact</a>
-          </nav>
-          <CusButton className="hero__talk-btn">
-            Let&apos;s Talk -&gt;
-          </CusButton>
-        </header>
+        <Navbar variant="hero" />
 
         {/* HERO MAIN CONTENT WRAPPER */}
         <div className="hero__content">
@@ -77,7 +66,7 @@ const Home = () => {
                 creative frontends with scalable backends to deliver meaningful
                 digital products.
               </p>
-              <CusButton className="hero__projects-btn" fullWidth>
+              <CusButton className="hero__projects-btn" fullWidth onClick={() => navigate("/projects")}>
                 View Projects -&gt;
               </CusButton>
             </article>

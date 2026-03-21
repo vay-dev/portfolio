@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import CusButton from "../../../components/Button";
 
 const SCROLL_THRESHOLD = 120;
 
 const links = [
-  { label: "Home", href: "#home" },
-  { label: "Projects", href: "#projects" },
-  { label: "About Me", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", to: "/", end: true },
+  { label: "Projects", to: "/projects", end: false },
+  { label: "About Me", to: "/#about", end: false },
+  { label: "Contact", to: "/#contact", end: false },
 ];
 
 const FloatingNav = () => {
   const [visible, setVisible] = useState(false);
-  const [activeLink, setActiveLink] = useState("#home");
 
   useEffect(() => {
     const onScroll = () => {
@@ -34,22 +34,24 @@ const FloatingNav = () => {
           transition={{ type: "spring", stiffness: 260, damping: 24 }}
         >
           {/* LOGO */}
-          <div className="floating-nav__logo">
-            <img src="images/logo.png" alt="logo" />
-          </div>
+          <NavLink to="/" className="floating-nav__logo">
+            <img src="/images/logo.png" alt="logo" />
+          </NavLink>
 
           {/* LINKS */}
           <ul className="floating-nav__links">
-            {links.map(({ label, href }) => (
-              <li key={href}>
-                <a
-                  href={href}
-                  className={`floating-nav__link ${activeLink === href ? "is-active" : ""}`}
-                  onClick={() => setActiveLink(href)}
+            {links.map(({ label, to, end }) => (
+              <li key={to}>
+                <NavLink
+                  to={to}
+                  end={end}
+                  className={({ isActive }) =>
+                    `floating-nav__link${isActive ? " is-active" : ""}`
+                  }
                 >
                   {label}
                   <span className="floating-nav__link-glow" aria-hidden="true" />
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>
