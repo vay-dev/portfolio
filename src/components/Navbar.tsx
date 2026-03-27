@@ -9,8 +9,8 @@ interface NavbarProps {
 const navLinks = [
   { label: "Home", to: "/", route: true },
   { label: "Projects", to: "/projects", route: true },
-  { label: "About Me", to: "/#about", route: false },
-  { label: "Contact", to: "/#contact", route: false },
+  { label: "About Me", to: "#about", route: false },
+  { label: "Contact", to: "#contact", route: false },
 ];
 
 const NavItem = ({
@@ -36,7 +36,7 @@ const NavItem = ({
     <NavLink
       to={to}
       end={to === "/"}
-      className={({ isActive }) => (isActive ? activeClass : undefined)}
+      className={({ isActive }) => (isActive ? activeClass : "")}
     >
       {label}
     </NavLink>

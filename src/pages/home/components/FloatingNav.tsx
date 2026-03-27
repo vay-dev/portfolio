@@ -8,8 +8,8 @@ const SCROLL_THRESHOLD = 120;
 const links = [
   { label: "Home", to: "/", end: true },
   { label: "Projects", to: "/projects", end: false },
-  { label: "About Me", to: "/#about", end: false },
-  { label: "Contact", to: "/#contact", end: false },
+  { label: "About Me", to: "#about", end: false },
+  { label: "Contact", to: "#contact", end: false },
 ];
 
 const FloatingNav = () => {

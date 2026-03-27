@@ -81,7 +81,7 @@
     &:hover,
     &.is-active {
       color: #43b68a;
-      background: rgba(67, 182, 138, 0.08);
+      background: transparent;
       text-shadow: 0 0 10px rgba(67, 182, 138, 0.55);
 
       &::after {
