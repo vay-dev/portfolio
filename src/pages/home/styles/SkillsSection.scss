@@ -61,8 +61,8 @@
   &__card {
     position: relative;
     border-radius: 1.25rem;
-    overflow: hidden;
-    min-height: 320px;
+    overflow: visible;
+    min-height: clamp(260px, 35vw, 420px);
 
     // dark base + top-left radial shine (keyboard key highlight)
     background: radial-gradient(
@@ -157,9 +157,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 6rem;
-    height: 6rem;
-    border-radius: 1rem;
+    width: clamp(3.5rem, 6vw, 6rem);
+    height: clamp(3.5rem, 6vw, 6rem);
+    border-radius: clamp(0.6rem, 1vw, 1rem);
     z-index: 4;
     display: grid;
     place-items: center;
@@ -198,6 +198,7 @@
     transition: box-shadow 0.35s ease;
     cursor: pointer;
 
+
     svg {
       filter: brightness(0.65) saturate(0)
         drop-shadow(0 1px 3px rgba(0, 0, 0, 0.8));
@@ -220,11 +221,53 @@
     }
   }
 
+  // NODE PULSE GLOW — same layer count at every keyframe so browser interpolates smoothly.
+  // Glow layers always present; only alpha goes 0 → peak → 0.
+  @keyframes skills-node-pulse-green {
+    0%, 100% { box-shadow:
+                 inset 0 0 18px 6px rgba(0, 255, 157, 0),
+                 inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                 inset 0 -2px 5px rgba(0, 0, 0, 0.55),
+                 0 0 18px 4px rgba(0, 255, 157, 0),
+                 0 6px 20px rgba(0, 0, 0, 0.5); }
+    50%      { box-shadow:
+                 inset 0 0 18px 6px rgba(0, 255, 157, 0.28),
+                 inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                 inset 0 -2px 5px rgba(0, 0, 0, 0.4),
+                 0 0 18px 4px rgba(0, 255, 157, 0.18),
+                 0 6px 20px rgba(0, 0, 0, 0.5); }
+  }
+  @keyframes skills-node-pulse-purple {
+    0%, 100% { box-shadow:
+                 inset 0 0 18px 6px rgba(124, 58, 237, 0),
+                 inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                 inset 0 -2px 5px rgba(0, 0, 0, 0.55),
+                 0 0 18px 4px rgba(124, 58, 237, 0),
+                 0 6px 20px rgba(0, 0, 0, 0.5); }
+    50%      { box-shadow:
+                 inset 0 0 18px 6px rgba(124, 58, 237, 0.28),
+                 inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                 inset 0 -2px 5px rgba(0, 0, 0, 0.4),
+                 0 0 18px 4px rgba(124, 58, 237, 0.18),
+                 0 6px 20px rgba(0, 0, 0, 0.5); }
+  }
+
+  // Frontend nodes — green (i=0..2), purple (i=3..4). Periods match fe-pulse: 2.2+i*0.35s
+  &__node--top-left    { animation: skills-node-pulse-green  2.2s  ease-in-out 2.5s  infinite; }
+  &__node--top-center  { animation: skills-node-pulse-green  2.55s ease-in-out 2.85s infinite; }
+  &__node--top-right   { animation: skills-node-pulse-green  2.9s  ease-in-out 3.2s  infinite; }
+  &__node--mid-left    { animation: skills-node-pulse-purple 3.25s ease-in-out 3.55s infinite; }
+  &__node--mid-right   { animation: skills-node-pulse-purple 3.6s  ease-in-out 3.9s  infinite; }
+  // Backend/Paystack pipeline nodes — periods match be-pulse/ps-pulse: 2.0+i*0.3s
+  // pulse arrives at the node end so delay ≈ draw delay + pulse duration
+  &__node--pipeline-left  { animation: skills-node-pulse-green 2.0s ease-in-out 2.3s infinite; }
+  &__node--pipeline-right { animation: skills-node-pulse-green 2.6s ease-in-out 2.9s infinite; }
+
   // NODE CARDS — same keyboard-key depth as about-section nodes
   &__node {
     position: absolute;
-    width: 5.5rem;
-    height: 5.5rem;
+    width: clamp(3rem, 5.5vw, 5.5rem);
+    height: clamp(3rem, 5.5vw, 5.5rem);
     border-radius: 0.875rem;
     z-index: 4;
     display: grid;
@@ -348,17 +391,17 @@
   }
 
   &__card--databases {
-    min-height: 320px;
+    min-height: clamp(260px, 35vw, 420px);
   }
 
   &__card--backend {
-    min-height: 320px;
+    min-height: clamp(200px, 28vw, 320px);
   }
 
   // BACKEND core — slightly smaller than frontend core, same glass style
   &__core--backend {
-    width: 5rem;
-    height: 5rem;
+    width: clamp(3rem, 5vw, 5rem);
+    height: clamp(3rem, 5vw, 5rem);
   }
 
   // DATABASES CARD — rings container

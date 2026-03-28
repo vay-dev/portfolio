@@ -35,7 +35,7 @@ const NavItem = ({
   return (
     <NavLink
       to={to}
-      end={to === "/"}
+      end
       className={({ isActive }) => (isActive ? activeClass : "")}
     >
       {label}

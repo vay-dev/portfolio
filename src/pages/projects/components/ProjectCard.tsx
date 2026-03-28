@@ -23,16 +23,16 @@ export default function ProjectCard({ project, index }: Props) {
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
     if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();
-    const px = (e.clientX - rect.left) / rect.width - 0.5;
-    const py = (e.clientY - rect.top) / rect.height - 0.5;
-    x.set(px);
-    y.set(py);
+    x.set((e.clientX - rect.left) / rect.width - 0.5);
+    y.set((e.clientY - rect.top) / rect.height - 0.5);
   }
 
   function handleMouseLeave() {
     x.set(0);
     y.set(0);
   }
+
+  const thumbnail = project.screenshots?.[0] ?? null;
 
   return (
     <motion.div
@@ -48,8 +48,8 @@ export default function ProjectCard({ project, index }: Props) {
     >
       {/* Thumbnail */}
       <div className="project-card__thumb">
-        {project.thumbnail ? (
-          <img src={project.thumbnail} alt={project.title} />
+        {thumbnail ? (
+          <img src={thumbnail} alt={project.title} />
         ) : (
           <span className="project-card__monogram">
             {project.title.slice(0, 2).toUpperCase()}

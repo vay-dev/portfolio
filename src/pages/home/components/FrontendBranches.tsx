@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 
 /**
  * FrontendBranches
@@ -62,8 +63,19 @@ const lineVariant = {
   }),
 };
 
-const FrontendBranches = () => (
+const FrontendBranches = () => {
+  const svgRef = useRef<SVGSVGElement>(null);
+  const inView = useInView(svgRef, { once: true, margin: "-100px" });
+  const [pulsing, setPulsing] = useState(false);
+  useEffect(() => {
+    if (!inView) return;
+    const t = setTimeout(() => setPulsing(true), 2400);
+    return () => clearTimeout(t);
+  }, [inView]);
+
+  return (
   <svg
+    ref={svgRef}
     className="frontend-branches"
     viewBox="0 0 100 100"
     preserveAspectRatio="none"
@@ -102,45 +114,49 @@ const FrontendBranches = () => (
       </filter>
     </defs>
 
+      <style>{`
+        @keyframes fe-pulse {
+          0%   { stroke-dashoffset: 120; opacity: 0; }
+          5%   { opacity: 1; }
+          95%  { opacity: 1; }
+          100% { stroke-dashoffset: -10; opacity: 0; }
+        }
+      `}</style>
+
     {branches.map((b, i) => {
       const filterId =
         b.color === "#7c3aed" ? "fe-glow-purple" : "fe-glow-green";
 
       return (
         <g key={b.id}>
-          {/* GLOW TUBE */}
           <motion.path
-            d={b.d}
-            fill="none"
-            stroke={b.color}
-            strokeWidth="1.2"
-            strokeOpacity={0.45}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            filter={`url(#${filterId})`}
-            variants={lineVariant}
-            initial="hidden"
-            animate="visible"
-            custom={i}
+            d={b.d} fill="none" stroke={b.color} strokeWidth="0.6" strokeOpacity={0.45}
+            strokeLinecap="round" strokeLinejoin="round" filter={`url(#${filterId})`}
+            variants={lineVariant} initial="hidden" whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }} custom={i}
           />
-          {/* SHARP LINE */}
           <motion.path
-            d={b.d}
-            fill="none"
-            stroke={b.color}
-            strokeWidth="0.3"
-            strokeOpacity={0.95}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            variants={lineVariant}
-            initial="hidden"
-            animate="visible"
-            custom={i}
+            d={b.d} fill="none" stroke={b.color} strokeWidth="0.2" strokeOpacity={0.95}
+            strokeLinecap="round" strokeLinejoin="round"
+            variants={lineVariant} initial="hidden" whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }} custom={i}
           />
+          {pulsing && (
+            <path
+              d={b.d} fill="none" stroke={b.color} strokeWidth="0.8" strokeLinecap="round"
+              filter={`url(#${filterId})`}
+              style={{
+                strokeDasharray: "10 110",
+                strokeDashoffset: 120,
+                animation: `fe-pulse ${2.2 + i * 0.35}s linear ${i * 0.5}s infinite`,
+              }}
+            />
+          )}
         </g>
       );
     })}
   </svg>
-);
+  );
+};
 
 export default FrontendBranches;

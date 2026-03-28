@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 
 /**
  * BackendBranches
@@ -36,11 +37,11 @@ const makePath = (x1: number, y: number, x2: number, deflect: number) =>
   `M ${x1} ${y + deflect} L ${x1} ${y} L ${x2} ${y}`;
 
 const branches = [
-  // LEFT — deflect downward (+2) so stub goes inward toward center
-  { id: "left-top", gradId: "grad-left", d: makePath(13, 46, 48, 2) },
-  { id: "left-mid", gradId: "grad-left", d: makePath(13, 50, 48, 2) },
-  { id: "left-bot", gradId: "grad-left", d: makePath(13, 54, 48, -2) },
-  // RIGHT — deflect downward (+2) mirrored
+  // LEFT — start at core (48), end at node (13) so pulse travels core→node
+  { id: "left-top", gradId: "grad-left", d: makePath(48, 46, 13, 2) },
+  { id: "left-mid", gradId: "grad-left", d: makePath(48, 50, 13, 2) },
+  { id: "left-bot", gradId: "grad-left", d: makePath(48, 54, 13, -2) },
+  // RIGHT — start at core (50), end at node (86) so pulse travels core→node
   { id: "right-top", gradId: "grad-right", d: makePath(50, 46, 86, 2) },
   { id: "right-mid", gradId: "grad-right", d: makePath(50, 50, 86, 2) },
   { id: "right-bot", gradId: "grad-right", d: makePath(50, 54, 86, -2) },
@@ -62,8 +63,19 @@ const lineVariant = {
   }),
 };
 
-const BackendBranches = () => (
+const BackendBranches = () => {
+  const svgRef = useRef<SVGSVGElement>(null);
+  const inView = useInView(svgRef, { once: true, margin: "-100px" });
+  const [pulsing, setPulsing] = useState(false);
+  useEffect(() => {
+    if (!inView) return;
+    const t = setTimeout(() => setPulsing(true), 2200);
+    return () => clearTimeout(t);
+  }, [inView]);
+
+  return (
   <svg
+    ref={svgRef}
     className="backend-branches"
     viewBox="0 0 100 100"
     preserveAspectRatio="none"
@@ -88,8 +100,8 @@ const BackendBranches = () => (
         </feMerge>
       </filter>
 
-      {/* LEFT gradient: green (node side) → purple (core side) */}
-      <linearGradient id="grad-left" x1="0%" y1="0%" x2="100%" y2="0%">
+      {/* LEFT gradient: purple (core side) → green (node side) — path now goes right→left */}
+      <linearGradient id="grad-left" x1="100%" y1="0%" x2="0%" y2="0%">
         <stop offset="0%" stopColor="#00ff9d" stopOpacity="0.9" />
         <stop offset="100%" stopColor="#7c3aed" stopOpacity="0.7" />
       </linearGradient>
@@ -101,40 +113,44 @@ const BackendBranches = () => (
       </linearGradient>
     </defs>
 
+      <style>{`
+        @keyframes be-pulse {
+          0%   { stroke-dashoffset: 120; opacity: 0; }
+          5%   { opacity: 1; }
+          95%  { opacity: 1; }
+          100% { stroke-dashoffset: -10; opacity: 0; }
+        }
+      `}</style>
+
     {branches.map((b, i) => (
       <g key={b.id}>
-        {/* GLOW TUBE — wide blurred stroke using gradient */}
         <motion.path
-          d={b.d}
-          fill="none"
-          stroke={`url(#${b.gradId})`}
-          strokeWidth="1.2"
-          strokeOpacity={0.5}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          filter="url(#be-glow)"
-          variants={lineVariant}
-          initial="hidden"
-          animate="visible"
-          custom={i}
+          d={b.d} fill="none" stroke={`url(#${b.gradId})`} strokeWidth="0.6" strokeOpacity={0.5}
+          strokeLinecap="round" strokeLinejoin="round" filter="url(#be-glow)"
+          variants={lineVariant} initial="hidden" whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }} custom={i}
         />
-        {/* SHARP LINE — thin crisp line on top */}
         <motion.path
-          d={b.d}
-          fill="none"
-          stroke={`url(#${b.gradId})`}
-          strokeWidth="0.35"
-          strokeOpacity={0.95}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          variants={lineVariant}
-          initial="hidden"
-          animate="visible"
-          custom={i}
+          d={b.d} fill="none" stroke={`url(#${b.gradId})`} strokeWidth="0.2" strokeOpacity={0.95}
+          strokeLinecap="round" strokeLinejoin="round"
+          variants={lineVariant} initial="hidden" whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }} custom={i}
         />
+        {pulsing && (
+          <path
+            d={b.d} fill="none" stroke="#00ff9d" strokeWidth="0.8" strokeLinecap="round"
+            filter="url(#be-glow)"
+            style={{
+              strokeDasharray: "10 110",
+              strokeDashoffset: 120,
+              animation: `be-pulse ${2.0 + i * 0.3}s linear ${i * 0.45}s infinite`,
+            }}
+          />
+        )}
       </g>
     ))}
   </svg>
-);
+  );
+};
 
 export default BackendBranches;

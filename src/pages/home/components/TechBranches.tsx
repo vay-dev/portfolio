@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 
 /**
  * TechBranches
@@ -91,9 +92,20 @@ const lineVariant = {
 };
 
 const TechBranches = () => {
+  const svgRef = useRef<SVGSVGElement>(null);
+  const inView = useInView(svgRef, { once: true, margin: "-100px" });
+  const [pulsing, setPulsing] = useState(false);
+
+  // Start pulses after draw animation completes (~1.2s draw + longest stagger 5*0.18=0.9s + buffer)
+  useEffect(() => {
+    if (!inView) return;
+    const t = setTimeout(() => setPulsing(true), 2400);
+    return () => clearTimeout(t);
+  }, [inView]);
+
   return (
-    // Full-panel SVG overlay — pointer-events:none so nodes/rings stay clickable
     <svg
+      ref={svgRef}
       className="tech-branches"
       viewBox="0 0 100 100"
       preserveAspectRatio="none"
@@ -134,8 +146,16 @@ const TechBranches = () => {
         </filter>
       </defs>
 
+      <style>{`
+        @keyframes tech-pulse {
+          0%   { stroke-dashoffset: 120; opacity: 0; }
+          5%   { opacity: 1; }
+          95%  { opacity: 1; }
+          100% { stroke-dashoffset: -10; opacity: 0; }
+        }
+      `}</style>
+
       {branches.map((b, i) => {
-        // map color to matching filter id
         const filterId =
           b.color === "#00ff9d"
             ? "glow-green"
@@ -145,36 +165,53 @@ const TechBranches = () => {
 
         return (
           <g key={b.id}>
-            {/* GLOW TUBE — wide, blurred, low opacity; gives the neon tube body */}
+            {/* GLOW TUBE */}
             <motion.path
               d={b.d}
               fill="none"
               stroke={b.color}
-              strokeWidth="1.2"
+              strokeWidth="0.6"
               strokeOpacity={0.45}
               strokeLinecap="round"
               strokeLinejoin="round"
               filter={`url(#${filterId})`}
               variants={lineVariant}
               initial="hidden"
-              animate="visible"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
               custom={i}
             />
-
-            {/* SHARP LINE — thin crisp 1px line on top of the glow tube */}
+            {/* SHARP LINE */}
             <motion.path
               d={b.d}
               fill="none"
               stroke={b.color}
-              strokeWidth="0.3"
+              strokeWidth="0.2"
               strokeOpacity={0.95}
               strokeLinecap="round"
               strokeLinejoin="round"
               variants={lineVariant}
               initial="hidden"
-              animate="visible"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
               custom={i}
             />
+            {/* TRAVELING PULSE — pure CSS, only starts after draw completes */}
+            {pulsing && (
+              <path
+                d={b.d}
+                fill="none"
+                stroke={b.color}
+                strokeWidth="0.8"
+                strokeLinecap="round"
+                filter={`url(#${filterId})`}
+                style={{
+                  strokeDasharray: "10 110",
+                  strokeDashoffset: 120,
+                  animation: `tech-pulse ${2.2 + i * 0.35}s linear ${i * 0.5}s infinite`,
+                }}
+              />
+            )}
           </g>
         );
       })}

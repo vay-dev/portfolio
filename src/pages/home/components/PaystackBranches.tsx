@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 
 /**
  * PaystackBranches
@@ -19,10 +20,11 @@ import { motion } from "framer-motion";
 const makePath = (x1: number, y: number, x2: number, deflect: number) =>
   `M ${x1} ${y + deflect} L ${x1} ${y} L ${x2} ${y}`;
 
+// Paths start at core (48) and end at node (19) so pulse travels core→node
 const branches = [
-  { id: "left-top", d: makePath(19, 46, 48, 2) },
-  { id: "left-mid", d: makePath(19, 50, 48, 2) },
-  { id: "left-bot", d: makePath(19, 54, 48, -2) },
+  { id: "left-top", d: makePath(48, 46, 19, 2) },
+  { id: "left-mid", d: makePath(48, 50, 19, 2) },
+  { id: "left-bot", d: makePath(48, 54, 19, -2) },
 ];
 
 const lineVariant = {
@@ -37,8 +39,19 @@ const lineVariant = {
   }),
 };
 
-const PaystackBranches = () => (
+const PaystackBranches = () => {
+  const svgRef = useRef<SVGSVGElement>(null);
+  const inView = useInView(svgRef, { once: true, margin: "-100px" });
+  const [pulsing, setPulsing] = useState(false);
+  useEffect(() => {
+    if (!inView) return;
+    const t = setTimeout(() => setPulsing(true), 2200);
+    return () => clearTimeout(t);
+  }, [inView]);
+
+  return (
   <svg
+    ref={svgRef}
     className="paystack-branches"
     viewBox="0 0 100 100"
     preserveAspectRatio="none"
@@ -62,47 +75,51 @@ const PaystackBranches = () => (
         </feMerge>
       </filter>
 
-      {/* green at node → purple at core */}
-      <linearGradient id="grad-paystack" x1="0%" y1="0%" x2="100%" y2="0%">
+      {/* purple at core → green at node — path now goes right→left */}
+      <linearGradient id="grad-paystack" x1="100%" y1="0%" x2="0%" y2="0%">
         <stop offset="0%"   stopColor="#00ff9d" stopOpacity="0.9" />
         <stop offset="100%" stopColor="#7c3aed" stopOpacity="0.7" />
       </linearGradient>
     </defs>
 
+      <style>{`
+        @keyframes ps-pulse {
+          0%   { stroke-dashoffset: 120; opacity: 0; }
+          5%   { opacity: 1; }
+          95%  { opacity: 1; }
+          100% { stroke-dashoffset: -10; opacity: 0; }
+        }
+      `}</style>
+
     {branches.map((b, i) => (
       <g key={b.id}>
-        {/* GLOW TUBE */}
         <motion.path
-          d={b.d}
-          fill="none"
-          stroke="url(#grad-paystack)"
-          strokeWidth="1.2"
-          strokeOpacity={0.5}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          filter="url(#ps-glow)"
-          variants={lineVariant}
-          initial="hidden"
-          animate="visible"
-          custom={i}
+          d={b.d} fill="none" stroke="url(#grad-paystack)" strokeWidth="0.6" strokeOpacity={0.5}
+          strokeLinecap="round" strokeLinejoin="round" filter="url(#ps-glow)"
+          variants={lineVariant} initial="hidden" whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }} custom={i}
         />
-        {/* SHARP LINE */}
         <motion.path
-          d={b.d}
-          fill="none"
-          stroke="url(#grad-paystack)"
-          strokeWidth="0.35"
-          strokeOpacity={0.95}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          variants={lineVariant}
-          initial="hidden"
-          animate="visible"
-          custom={i}
+          d={b.d} fill="none" stroke="url(#grad-paystack)" strokeWidth="0.2" strokeOpacity={0.95}
+          strokeLinecap="round" strokeLinejoin="round"
+          variants={lineVariant} initial="hidden" whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }} custom={i}
         />
+        {pulsing && (
+          <path
+            d={b.d} fill="none" stroke="#00ff9d" strokeWidth="0.8" strokeLinecap="round"
+            filter="url(#ps-glow)"
+            style={{
+              strokeDasharray: "10 110",
+              strokeDashoffset: 120,
+              animation: `ps-pulse ${2.0 + i * 0.3}s linear ${i * 0.45}s infinite`,
+            }}
+          />
+        )}
       </g>
     ))}
   </svg>
-);
+  );
+};
 
 export default PaystackBranches;

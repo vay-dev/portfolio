@@ -6,10 +6,10 @@ import CusButton from "../../../components/Button";
 const SCROLL_THRESHOLD = 120;
 
 const links = [
-  { label: "Home", to: "/", end: true },
-  { label: "Projects", to: "/projects", end: false },
-  { label: "About Me", to: "#about", end: false },
-  { label: "Contact", to: "#contact", end: false },
+  { label: "Home", to: "/", route: true },
+  { label: "Projects", to: "/projects", route: true },
+  { label: "About Me", to: "#about", route: false },
+  { label: "Contact", to: "#contact", route: false },
 ];
 
 const FloatingNav = () => {
@@ -40,18 +40,25 @@ const FloatingNav = () => {
 
           {/* LINKS */}
           <ul className="floating-nav__links">
-            {links.map(({ label, to, end }) => (
+            {links.map(({ label, to, route }) => (
               <li key={to}>
-                <NavLink
-                  to={to}
-                  end={end}
-                  className={({ isActive }) =>
-                    `floating-nav__link${isActive ? " is-active" : ""}`
-                  }
-                >
-                  {label}
-                  <span className="floating-nav__link-glow" aria-hidden="true" />
-                </NavLink>
+                {route ? (
+                  <NavLink
+                    to={to}
+                    end
+                    className={({ isActive }) =>
+                      `floating-nav__link${isActive ? " is-active" : ""}`
+                    }
+                  >
+                    {label}
+                    <span className="floating-nav__link-glow" aria-hidden="true" />
+                  </NavLink>
+                ) : (
+                  <a href={to} className="floating-nav__link">
+                    {label}
+                    <span className="floating-nav__link-glow" aria-hidden="true" />
+                  </a>
+                )}
               </li>
             ))}
           </ul>

@@ -153,7 +153,7 @@ const SkillsSection = () => {
 
           {/* LEFT NODE — Paystack */}
           <div
-            className="skills-section__node skills-section__node--pipeline-left"
+            className="skills-section__node skills-section__node--pipeline-left skills-section__node--paystack"
             title="Paystack"
           >
             <PaystackIcon size={32} />

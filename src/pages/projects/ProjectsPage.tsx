@@ -3,23 +3,23 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Navbar from "../../components/Navbar";
 import ProjectCard from "./components/ProjectCard";
-import { projects, type ProjectCategory } from "./data/projects";
+import { deriveCategories, type ProjectCategory } from "./data/projects";
+import { useProjects } from "../../hooks/useProjects";
 
-const categories: ProjectCategory[] = ["All", "Frontend", "Backend", "Mobile", "Fullstack"];
+const CATEGORIES: ProjectCategory[] = ["All", "Frontend", "Backend", "Mobile", "Fullstack"];
 
 export default function ProjectsPage() {
   const [active, setActive] = useState<ProjectCategory>("All");
+  const { projects, loading, error } = useProjects();
 
   const filtered = active === "All"
     ? projects
-    : projects.filter((p) => p.category.includes(active));
+    : projects.filter((p) => deriveCategories(p.techStack).includes(active));
 
   return (
     <div className="projects-page">
-      {/* Nav */}
       <Navbar variant="fixed" />
 
-      {/* Main content */}
       <main className="projects-page__main">
         {/* Hero */}
         <section className="projects-page__hero">
@@ -44,7 +44,7 @@ export default function ProjectsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.2 }}
         >
-          {categories.map((cat) => (
+          {CATEGORIES.map((cat) => (
             <button
               key={cat}
               onClick={() => setActive(cat)}
@@ -55,25 +55,41 @@ export default function ProjectsPage() {
           ))}
         </motion.div>
 
-        {/* Grid */}
-        <motion.div
-          key={active}
-          className="projects-page__grid"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-        >
-          {filtered.map((project, i) => (
-            <ProjectCard key={project.id} project={project} index={i} />
-          ))}
-        </motion.div>
+        {/* Loading */}
+        {loading && (
+          <div className="projects-page__state">
+            <span className="projects-page__spinner" />
+            Loading projects…
+          </div>
+        )}
 
-        {filtered.length === 0 && (
+        {/* Error */}
+        {!loading && error && (
+          <div className="projects-page__state projects-page__state--error">
+            Could not load projects — {error}
+          </div>
+        )}
+
+        {/* Grid */}
+        {!loading && !error && (
+          <motion.div
+            key={active}
+            className="projects-page__grid"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            {filtered.map((project, i) => (
+              <ProjectCard key={project.id} project={project} index={i} />
+            ))}
+          </motion.div>
+        )}
+
+        {!loading && !error && filtered.length === 0 && (
           <p className="projects-page__empty">No projects in this category yet.</p>
         )}
       </main>
 
-      {/* Footer */}
       <footer>
         <div className="projects-page__footer">
           <span>© 2025 VAY. Built with precision.</span>
@@ -85,7 +101,6 @@ export default function ProjectsPage() {
         </div>
       </footer>
 
-      {/* Cinematic scroll indicator */}
       <div className="projects-page__scroll-indicator" />
     </div>
   );

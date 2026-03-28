@@ -1,5 +1,6 @@
 import "./../styles/AboutSection.scss";
 import TechBranches from "./TechBranches";
+import { useScrollReveal } from "../../../hooks/useScrollReveal";
 // Core center icon — kept as lucide (generic </> symbol, not a brand)
 import { Code2 } from "lucide-react";
 // Official brand SVG icons from simple-icons — pixel-perfect brand marks
@@ -13,26 +14,28 @@ import {
 } from "@icons-pack/react-simple-icons";
 
 const AboutSection = () => {
+  const sectionRef = useScrollReveal<HTMLElement>();
+
   return (
-    <section className="about-section" id="about">
+    <section className="about-section" id="about" ref={sectionRef}>
       {/* SECTION ACTION BUTTONS (PLACEHOLDER) */}
 
       <div className="about-section__content">
         {/* LEFT: LABEL + TITLE + COPY + CTA */}
         <article className="about-section__left">
-          <span className="about-section__pill">About Me</span>
+          <span className="about-section__pill" data-reveal>About Me</span>
 
-          <h2 className="about-section__title">
+          <h2 className="about-section__title" data-reveal>
             EVERYTHING ABOUT <span>VICTOR</span>
           </h2>
 
-          <p>
+          <p data-reveal>
             Hi, <em>Victor Ayeni</em> a passionate <em>Full Stack Developer</em>{" "}
             who loves crafting modern web applications that are both beautiful
             on the surface and powerful under the hood.
           </p>
 
-          <p>
+          <p data-reveal>
             With expertise in{" "}
             <strong>
               React, Next.js, Angular, Node.js, Django PostgreSQL, and Flutter
@@ -43,13 +46,13 @@ const AboutSection = () => {
             solutions for real-world clients.
           </p>
 
-          <p>
+          <p data-reveal>
             Whether it&apos;s a <em>Startup, MVP</em> or a scalable enterprise
             application, I focus on writing clean, maintainable code and
             creating experiences that users love.
           </p>
 
-          <button className="about-section__cta" type="button">
+          <button className="about-section__cta" data-reveal type="button">
             MORE ABOUT ME -&gt;
           </button>
         </article>
