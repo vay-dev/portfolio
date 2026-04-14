@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vaydev-portfolio-v2.vercel.app/sitemap.xml

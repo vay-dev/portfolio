@@ -11,6 +11,8 @@ import ParticleBackground from "../../components/ParticleBackground";
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { useScrollAnimations } from "../../hooks/useScrollAnimations";
+import Seo from "../../components/Seo";
+import { absoluteUrl } from "../../lib/site";
 // import MobileBottomNav from "./components/MobileBottomNav";
 
 const Home = () => {
@@ -124,6 +126,36 @@ const Home = () => {
 
   return (
     <div className="home-page">
+      <Seo
+        title="Full-Stack Developer Portfolio"
+        description="Victor Ayeni, also known as Vay Dev, builds cinematic frontends and scalable backends. Explore projects, skills, and experience."
+        path="/"
+        type="profile"
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Victor Ayeni",
+            alternateName: "Vay Dev",
+            url: absoluteUrl("/"),
+            image: absoluteUrl("/images/me.png"),
+            jobTitle: "Full-Stack Developer",
+            email: "mailto:ayeniv69@gmail.com",
+            sameAs: [
+              "https://github.com/vay-dev/",
+              "https://www.linkedin.com/in/ayeni-victor-6a403136b/",
+            ],
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "Vay Dev Portfolio",
+            url: absoluteUrl("/"),
+            description:
+              "Portfolio website for Victor Ayeni, a full-stack developer building modern web products.",
+          },
+        ]}
+      />
       <FloatingNav />
       <section className="hero">
         {/* PARTICLES */}
@@ -197,7 +229,7 @@ const Home = () => {
             <div className="hero__image-con">
               <img
                 src="images/me.png"
-                alt="portrait of Morshed Al Masud"
+                alt="Portrait of Victor Ayeni"
                 className="hero__image"
               />
             </div>

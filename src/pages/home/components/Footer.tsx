@@ -49,16 +49,40 @@ const Footer = () => {
         {/* BOTTOM */}
         <div className="footer__bottom">
           <div className="footer__socials">
-            <a href="#" className="footer__social-link" aria-label="WhatsApp">
+            <a
+              href="https://wa.me/2348105315495?text=Hi%20Victor%2C%20I%20checked%20out%20your%20portfolio."
+              className="footer__social-link"
+              aria-label="WhatsApp"
+              target="_blank"
+              rel="noreferrer"
+            >
               <SiWhatsapp size={20} />
             </a>
-            <a href="#" className="footer__social-link" aria-label="Discord">
+            <a
+              href="https://discord.com/users/vaydev24"
+              className="footer__social-link"
+              aria-label="Discord"
+              target="_blank"
+              rel="noreferrer"
+            >
               <SiDiscord size={20} />
             </a>
-            <a href="#" className="footer__social-link" aria-label="Facebook">
+            <a
+              href="https://www.linkedin.com/in/ayeni-victor-6a403136b/"
+              className="footer__social-link"
+              aria-label="LinkedIn"
+              target="_blank"
+              rel="noreferrer"
+            >
               <SiFacebook size={20} />
             </a>
-            <a href="#" className="footer__social-link" aria-label="GitHub">
+            <a
+              href="https://github.com/vay-dev/"
+              className="footer__social-link"
+              aria-label="GitHub"
+              target="_blank"
+              rel="noreferrer"
+            >
               <SiGithub size={20} />
             </a>
           </div>

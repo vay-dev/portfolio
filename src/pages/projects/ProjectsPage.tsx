@@ -5,6 +5,8 @@ import Navbar from "../../components/Navbar";
 import ProjectCard from "./components/ProjectCard";
 import { deriveCategories, type ProjectCategory } from "./data/projects";
 import { useProjects } from "../../hooks/useProjects";
+import Seo from "../../components/Seo";
+import { absoluteUrl } from "../../lib/site";
 
 const CATEGORIES: ProjectCategory[] = ["All", "Frontend", "Backend", "Mobile", "Fullstack"];
 
@@ -18,10 +20,22 @@ export default function ProjectsPage() {
 
   return (
     <div className="projects-page">
+      <Seo
+        title="Projects"
+        description="Browse selected frontend, backend, mobile, and full-stack projects built by Victor Ayeni."
+        path="/projects"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Vay Dev Projects",
+          url: absoluteUrl("/projects"),
+          description:
+            "Selected software projects by Victor Ayeni across frontend, backend, mobile, and full-stack development.",
+        }}
+      />
       <Navbar variant="fixed" />
 
       <main className="projects-page__main">
-        {/* Hero */}
         <section className="projects-page__hero">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -31,13 +45,12 @@ export default function ProjectsPage() {
             <span className="projects-page__hero-label">Portfolio</span>
             <h1>My Projects</h1>
             <p>
-              Things I've built — from idea to production. Focused on
+              Things I&apos;ve built from idea to production. Focused on
               performance, scalability, and cinematic user experiences.
             </p>
           </motion.div>
         </section>
 
-        {/* Filters */}
         <motion.div
           className="projects-page__filters"
           initial={{ opacity: 0, y: 16 }}
@@ -55,7 +68,6 @@ export default function ProjectsPage() {
           ))}
         </motion.div>
 
-        {/* Loading */}
         {loading && (
           <div className="projects-page__state">
             <span className="projects-page__spinner" />
@@ -63,14 +75,12 @@ export default function ProjectsPage() {
           </div>
         )}
 
-        {/* Error */}
         {!loading && error && (
           <div className="projects-page__state projects-page__state--error">
             Could not load projects — {error}
           </div>
         )}
 
-        {/* Grid */}
         {!loading && !error && (
           <motion.div
             key={active}
@@ -94,9 +104,9 @@ export default function ProjectsPage() {
         <div className="projects-page__footer">
           <span>© 2025 VAY. Built with precision.</span>
           <div className="projects-page__footer-links">
-            {["GitHub", "LinkedIn", "Twitter"].map((link) => (
-              <a key={link} href="#">{link}</a>
-            ))}
+            <a href="https://github.com/vay-dev/" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/ayeni-victor-6a403136b/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="mailto:ayeniv69@gmail.com">Email</a>
           </div>
         </div>
       </footer>
